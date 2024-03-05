@@ -1,0 +1,84 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001bf90dd5840 .scope module, "full_adder" "full_adder" 2 3;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "carry_in";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "carry_out";
+L_000001bf90d86f30 .functor OR 1, v000001bf90d8bd10_0, v000001bf90dd2c50_0, C4<0>, C4<0>;
+o000001bf90dd6fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001bf90dd2d90_0 .net "A", 0 0, o000001bf90dd6fd8;  0 drivers
+o000001bf90dd7008 .functor BUFZ 1, C4<z>; HiZ drive
+v000001bf90dd2e30_0 .net "B", 0 0, o000001bf90dd7008;  0 drivers
+v000001bf90dd2ed0_0 .net "I1", 0 0, v000001bf90d8bdb0_0;  1 drivers
+v000001bf90dd3780_0 .net "I2", 0 0, v000001bf90d8bd10_0;  1 drivers
+v000001bf90e200b0_0 .net "I3", 0 0, v000001bf90dd2c50_0;  1 drivers
+o000001bf90dd7158 .functor BUFZ 1, C4<z>; HiZ drive
+v000001bf90e20470_0 .net "carry_in", 0 0, o000001bf90dd7158;  0 drivers
+v000001bf90e1f9d0_0 .net "carry_out", 0 0, L_000001bf90d86f30;  1 drivers
+v000001bf90e1f890_0 .net "sum", 0 0, v000001bf90dd2cf0_0;  1 drivers
+S_000001bf90dd59d0 .scope module, "ha1" "half_adder" 2 7, 3 1 0, S_000001bf90dd5840;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "S";
+    .port_info 3 /OUTPUT 1 "C";
+v000001bf90d868b0_0 .net "A", 0 0, o000001bf90dd6fd8;  alias, 0 drivers
+v000001bf90d8bc70_0 .net "B", 0 0, o000001bf90dd7008;  alias, 0 drivers
+v000001bf90d8bd10_0 .var "C", 0 0;
+v000001bf90d8bdb0_0 .var "S", 0 0;
+E_000001bf90d8c270 .event anyedge, v000001bf90d8bc70_0, v000001bf90d868b0_0;
+S_000001bf90d8be50 .scope module, "ha2" "half_adder" 2 8, 3 1 0, S_000001bf90dd5840;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "S";
+    .port_info 3 /OUTPUT 1 "C";
+v000001bf90dd2b10_0 .net "A", 0 0, v000001bf90d8bdb0_0;  alias, 1 drivers
+v000001bf90dd2bb0_0 .net "B", 0 0, o000001bf90dd7158;  alias, 0 drivers
+v000001bf90dd2c50_0 .var "C", 0 0;
+v000001bf90dd2cf0_0 .var "S", 0 0;
+E_000001bf90d8cbb0 .event anyedge, v000001bf90dd2bb0_0, v000001bf90d8bdb0_0;
+    .scope S_000001bf90dd59d0;
+T_0 ;
+    %wait E_000001bf90d8c270;
+    %delay 5, 0;
+    %load/vec4 v000001bf90d868b0_0;
+    %load/vec4 v000001bf90d8bc70_0;
+    %xor;
+    %store/vec4 v000001bf90d8bdb0_0, 0, 1;
+    %load/vec4 v000001bf90d868b0_0;
+    %load/vec4 v000001bf90d8bc70_0;
+    %and;
+    %store/vec4 v000001bf90d8bd10_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_000001bf90d8be50;
+T_1 ;
+    %wait E_000001bf90d8cbb0;
+    %delay 5, 0;
+    %load/vec4 v000001bf90dd2b10_0;
+    %load/vec4 v000001bf90dd2bb0_0;
+    %xor;
+    %store/vec4 v000001bf90dd2cf0_0, 0, 1;
+    %load/vec4 v000001bf90dd2b10_0;
+    %load/vec4 v000001bf90dd2bb0_0;
+    %and;
+    %store/vec4 v000001bf90dd2c50_0, 0, 1;
+    %jmp T_1;
+    .thread T_1, $push;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "full_adder.v";
+    "./half_adder.v";

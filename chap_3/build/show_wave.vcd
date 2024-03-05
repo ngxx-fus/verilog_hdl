@@ -1,0 +1,124 @@
+$date
+	Wed Feb 28 09:49:10 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module show_wave $end
+$var wire 1 ! OS $end
+$var wire 1 " OC $end
+$var wire 1 # O $end
+$var reg 1 $ A $end
+$var reg 1 % B $end
+$var reg 1 & C $end
+$var reg 1 ' D $end
+$scope module FA $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var wire 1 & carry_in $end
+$var wire 1 " carry_out $end
+$var wire 1 ! sum $end
+$var wire 1 ( I3 $end
+$var wire 1 ) I2 $end
+$var wire 1 * I1 $end
+$scope module ha1 $end
+$var wire 1 $ A $end
+$var wire 1 % B $end
+$var reg 1 ) C $end
+$var reg 1 * S $end
+$upscope $end
+$scope module ha2 $end
+$var wire 1 * A $end
+$var wire 1 & B $end
+$var reg 1 ( C $end
+$var reg 1 ! S $end
+$upscope $end
+$upscope $end
+$scope module mux_4_to_1_f $end
+$var wire 4 + in [3:0] $end
+$var wire 2 , sel [1:0] $end
+$var reg 1 # out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 ,
+b0x +
+x*
+x)
+x(
+x'
+0&
+0%
+0$
+x#
+x"
+x!
+$end
+#5
+0"
+0(
+0!
+0)
+0*
+#20
+b1x +
+1&
+#25
+1!
+#40
+0#
+0&
+b10x +
+b1 ,
+1%
+#45
+1*
+#60
+1#
+b11x +
+1&
+#65
+1"
+1(
+0!
+#80
+0#
+0&
+0%
+b100x +
+b10 ,
+1$
+#85
+0"
+0(
+1!
+#100
+b101x +
+1&
+#105
+1"
+1(
+0!
+#120
+1#
+0&
+b110x +
+b11 ,
+1%
+#125
+0(
+1)
+0*
+#140
+b111x +
+1&
+#145
+1!
