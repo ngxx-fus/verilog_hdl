@@ -1,40 +1,21 @@
 `timescale 1ns/1ns
-`include "D_FF.v"
-`include "half_adder_.v"
+`include "shift_reg_4bit.v"
 
 module show_wave;
-    reg A,B,C,D,en;
+    reg[1:0] in;
+    reg[4:0] index;
+    wire O;
 
-    wire OS, OC, O;
-
-    half_adder_ hadder( .C(OC), .A(A), .S(OS), .B(B));
+    multiplexer_2_1    multiplexer_2_1_( index[2], {index[1], index[0]}, O );
 
 
 initial begin
     $dumpfile("show_wave.vcd"); 
     $dumpvars(0, show_wave);
-    A=0; B=0; C=0;D=0; en=0;selll=0;
-    #20
-    A=1; B=1; C=1;D=1; en=0;selll=1;
-    #20
-    A=1; B=1; C=1;D=1; en=0;selll=2;
-    #20
-    A=1; B=1; C=1;D=1; en=0;selll=3;
-    #20
-    A=0; B=0; C=1;D=0; en=0;selll=0;
-    #20
-    A=0; B=1; C=0;D=0; en=1;selll=1;
-    #20
-    A=0; B=1; C=1;D=0; en=1;selll=2;
-    #20
-    A=1; B=0; C=0;D=1;en=1;selll=3;
-    #20
-    A=1; B=0; C=1;D=1;en=1;selll=0;
-    #20
-    A=1; B=1; C=0;D=1;en=1;selll=1;
-    #20
-    A=1; B=1; C=1;D=0;en=1;selll=2;
-    #40
+    for (index = 5'b00000; index < 5'b10000 ; index=index+1) 
+    begin
+        #5;
+    end
     $display("Test completed!");
 end
 endmodule

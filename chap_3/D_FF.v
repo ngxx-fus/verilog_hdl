@@ -1,13 +1,12 @@
-module d_ff(output Q, input D, input CLK);
-    
-    wire CLK, D;
-    reg Q;
-
+/*
+Module name: Flipflop D
+Author: Nguyen Thanh Phu
+*/
+module d_ff(output reg q, input d, input Clock);
     //posedge for "low-to-high edge"
     //negedge for "high-to-low edge"
-    always @(posedge CLK)
+    always @(posedge Clock)
         begin
-                #2
-                Q = D;
+                q = d;
         end
 endmodule

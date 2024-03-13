@@ -1,3 +1,8 @@
+/*
+Module name: Full adder
+Author: Nguyen Thanh Phu
+*/
+
 `include "half_adder.v"
 
 module full_adder(input A, input B, input carry_in, output sum, output carry_out);

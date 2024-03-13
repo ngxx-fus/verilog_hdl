@@ -1,3 +1,8 @@
+/*
+Module name:  Mux 4 to 1
+Author: Nguyen Thanh Phu
+*/
+
 module mux_4_to_1(in, sel, out, en);
     input [3:0]in;
     input [1:0]sel;

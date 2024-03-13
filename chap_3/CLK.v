@@ -1,3 +1,4 @@
+
 //while(condi) statement;
 //repeat(times) statement;
 module CLK(out);
