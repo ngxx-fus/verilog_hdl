@@ -1,3 +1,8 @@
+/*
+Module name: 4 bit Up/Down counter
+Author: Nguyen Thanh Phu
+*/
+
 module CNT4b(
     clk,//clock
     rst,//reset

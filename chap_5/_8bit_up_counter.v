@@ -1,3 +1,8 @@
+/*
+Module name: 8 bit up counter
+Author: Nguyen Thanh Phu
+*/
+
 `include "d_ff.v"
 
 module UP_CNT8b(

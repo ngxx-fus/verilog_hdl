@@ -1,3 +1,7 @@
+/*
+Module name: Only using for show wave
+Author: Nguyen Thanh Phu
+*/
 `timescale 1ns/1ns
 `include "CNT4b_HW.v"
 
