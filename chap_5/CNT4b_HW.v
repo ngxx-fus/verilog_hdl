@@ -16,7 +16,7 @@ module CNT4b(
     input [3:0] MIN, MAX;
     output reg [3:0] OUT;
 
-    always @(posedge clk, rst, SS, MODE) 
+    always @(posedge clk, rst) 
     begin
             if( rst == 1) 
                 if(MODE == 1)
