@@ -124,7 +124,7 @@ module LED_SANG_DAN_TSP(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b00; 
+                LED8 = 8'h00; 
         else 
             if( SS == 1)
 		LED8 = (LED8>>1)+8'h80;
@@ -144,7 +144,7 @@ module LED_SANG_DAN_TSP_repeat(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b00;
+                LED8 = 8'h00;
         else 
             if( SS == 1)
                 LED8 = (LED8 == 8'hFF)?(0):((LED8>>1)+8'h80);
@@ -164,7 +164,7 @@ module LED_SANG_DAN_PST(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b00;
+                LED8 = 8'h00;
         else 
             if( SS == 1)
 		        LED8 = (LED8<<1)+8'h01;
@@ -184,7 +184,7 @@ module LED_SANG_DAN_PST_repeat(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b00;
+                LED8 = 8'h00;
         else 
             if( SS == 1)
                         LED8 = (LED8==8'hFF)?(0):(LED8<<1)+8'h01;
@@ -209,7 +209,7 @@ module LED_SANG_DAN_MODE_repeat(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b00;
+                LED8 = 8'h00;
         else 
             if( SS == 1 )
 		if(MODE == 1)
