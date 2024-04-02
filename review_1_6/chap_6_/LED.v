@@ -385,6 +385,7 @@ module LED_DAN_DICH_NVT_repeat(
 
 endmodule
 
+
 //------------------------------------------------------------------
 //LED sáng dịch có điều kiển trừ trong ra ngoài hoặc ngoài vào trong qua chân MODE, và có tạm dừng qua chân SS.
 // SS 0|1 : dừng|đếm
