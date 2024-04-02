@@ -34,7 +34,7 @@ module decode_2_4(
 endmodule
 
 //Dùng case:
-module decode_2_4(
+module decode_2_4_method0(
   input HL,
   input EN,
   input [1:0]IN,
@@ -57,7 +57,7 @@ module decode_2_4(
 endmodule
 
 //Sử dụng toán tử:
-module DEC24_method4(en, in, y);
+module DEC24_method1(en, in, y);
     input en;
     input [1:0] in;
     output  reg [3:0] y;
@@ -67,13 +67,62 @@ module DEC24_method4(en, in, y);
             if(en == 0)
                 y = 0;
             else
-                y = (in == 0)?(y=1):((in == 1)?(y=2):(in==2)?(y=4):(y=8));
+                y = (in == 0)?(1):((in == 1)?(2):(in==2)?(4):(8));
         end
 endmodule
 
+//Sử dụng toán tử, dịch bit, K có HL:
+module DEC24_method2(
+    input EN,
+    input [1:0] IN,
+    output [3:0] Y
+);
+    assign Y = (EN==1)?(4'b0001<<IN):(0);
+endmodule
+
+//Sử dụng toán tử, dịch bit, có HL:
+module DEC24_method3(
+    input HL,
+    input EN,
+    input [1:0] IN,
+    output [3:0] Y
+);
+    wire [3:0]temp;
+    assign temp = (EN==1)?(4'b0001<<IN):(0);
+    assign Y = (HL==1)?(temp):(~temp);
+endmodule
+
+//Sử dụng toán tử, dịch bit, có HL, mô hình hành vi:
+module DEC24_method4(
+    input HL,
+    input EN,
+    input [1:0] IN,
+    output [3:0] Y
+);
+    reg [3:0]temp;
+    always @(HL, EN, IN)
+    	begin 
+    	    temp = (EN==1)?(4'b0001<<IN):(0);
+    	end
+    assign Y = (HL==1)?(temp):(~temp);
+endmodule
+
+//Sử dụng toán tử, dịch bit, có HL, mô hình hành vi, không biến temp:
+module DEC24_method5(
+    input HL,
+    input EN,
+    input [1:0] IN,
+    output reg[3:0]  Y
+);
+    always @(HL, EN, IN)
+    	begin 
+    	    Y = (HL==1) ? ((EN==1)?(4'b0001<<IN):(0)) :
+    	                  ((EN==1)?(~(4'b0001<<IN)):(1));
+    	end
+endmodule
 
 //Không có HL:
-module encode_2_4(
+module encode_2_4_method6(
   input EN,
   input [1:0]IN,
   output reg [3:0] OUT
@@ -93,7 +142,7 @@ module encode_2_4(
 endmodule
 
 //Không có EN:
-module decode_2_4(
+module decode_2_4_method7(
   input [1:0]IN,
   output reg [3:0] OUT
 );
