@@ -3,7 +3,7 @@ Module name: Only using for show wave
 Author: Nguyen Thanh Phu
 */
 `timescale 1ns/1ns
-`include "SUA_BAI_TAP.v"
+`include "CNT4b_HW.v"
 
 module show_wave;
     reg[3:0] MAX, MIN;
