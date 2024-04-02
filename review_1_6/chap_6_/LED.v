@@ -9,7 +9,7 @@ module LED_SANG_DICH_TSP(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b80; 
+                LED8 = 8'h80; 
         else 
             if( SS == 1)
 		LED8 = LED8>>1;
@@ -29,13 +29,13 @@ module LED_SANG_DICH_TSP_repeat(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'b80;
+                LED8 = 8'h80;
         else 
             if( SS == 1)
                 if( LED8 == 8'h00 )
                         LED8 = 8'h80;//1000_0000b
                 else
-                        LED8 = ((LED8>>1);
+                        LED8 = (LED8>>1);
             else 
                 LED8 = LED8;
     end
@@ -63,7 +63,7 @@ module LED_SANG_DICH_PST(
 endmodule
 
 //LED sáng dịch phải sang trái sau đó tắt và lặp lại
-module LED_SANG_DICH_TSP_repeat(
+module LED_SANG_DICH_PST_repeat(
     input clk,
     input reset,
     input SS,
@@ -147,7 +147,7 @@ module LED_SANG_DAN_TSP_repeat(
                 LED8 = 8'b00;
         else 
             if( SS == 1)
-                LED8 = (LED8 == 8'FF)?(0):((LED8>>1)+8'h80);
+                LED8 = (LED8 == 8'hFF)?(0):((LED8>>1)+8'h80);
             else 
                 LED8 = LED8;
     end
@@ -155,7 +155,7 @@ module LED_SANG_DAN_TSP_repeat(
 endmodule
 
 //LED sáng dần từ phải sang trái
-module LED_SANG_DICH_PST(
+module LED_SANG_DAN_PST(
     input clk,
     input reset,
     input SS,
@@ -167,7 +167,7 @@ module LED_SANG_DICH_PST(
                 LED8 = 8'b00;
         else 
             if( SS == 1)
-		LED8 = (LED8<<1)+8'h01;
+		        LED8 = (LED8<<1)+8'h01;
             else 
                 LED8 = LED8;
     end
@@ -236,7 +236,7 @@ module LED_SANG_DICH_TRN(
                 LED8 = 8'b00011000;
         else 
             if( SS == 1)
-                LED8 = {LED[7:4]<<1, LED[3:0]>>1};
+                LED8 = {LED8[7:4]<<1, LED8[3:0]>>1};
             else 
                 LED8 = LED8;
     end
@@ -256,7 +256,7 @@ module LED_SANG_DICH_TRN_repeat(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = (LED8==8'h00)?(8'h18):({LED[7:4]<<1, LED[3:0]>>1});
+                LED8 = (LED8==8'h00)?(8'h18):({LED8[7:4]<<1, LED8[3:0]>>1});
             else 
                 LED8 = LED8;
     end
@@ -276,7 +276,7 @@ module LED_DAN_DICH_TRN(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = {LED[7:4]<<1, LED[3:0]>>1}+8'h18;
+                LED8 = {LED8[7:4]<<1, LED8[3:0]>>1}+8'h18;
             else 
                 LED8 = LED8;
     end
@@ -296,7 +296,7 @@ module LED_DAN_DICH_TRN_repeat(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = (LED==8'hFF)?(0):({LED[7:4]<<1, LED[3:0]>>1}+8'b00011000);
+                LED8 = (LED8==8'hFF)?(0):({LED8[7:4]<<1, LED8[3:0]>>1}+8'b00011000);
             else 
                 LED8 = LED8;
     end
@@ -318,7 +318,7 @@ module LED_SANG_DICH_NVT(
                 LED8 = 8'h81;
         else 
             if( SS == 1)
-                LED8 = {LED[7:4]>>1, LED[3:0]>>1};
+                LED8 = {LED8[7:4]>>1, LED8[3:0]>>1};
             else 
                 LED8 = LED8;
     end
@@ -338,7 +338,7 @@ module LED_SANG_DICH_NVT_repeat(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = (LED8==8'h00)?(8'h81):({LED[7:4]>>1, LED[3:0]<<1});
+                LED8 = (LED8==8'h00)?(8'h81):({LED8[7:4]>>1, LED8[3:0]<<1});
             else 
                 LED8 = LED8;
     end
@@ -358,7 +358,7 @@ module LED_DAN_DICH_NVT(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = {LED[7:4]>>1, LED[3:0]<<1}+8'h81;
+                LED8 = {LED8[7:4]>>1, LED8[3:0]<<1}+8'h81;
             else 
                 LED8 = LED8;
     end
@@ -378,7 +378,7 @@ module LED_DAN_DICH_NVT_repeat(
                 LED8 = 8'h00;
         else 
             if( SS == 1)
-                LED8 = (LED==8'hFF)?(0):({LED[7:4]>>1, LED[3:0]<<1}+8'h81);
+                LED8 = (LED8==8'hFF)?(0):({LED8[7:4]>>1, LED8[3:0]<<1}+8'h81);
             else 
                 LED8 = LED8;
     end
@@ -405,9 +405,9 @@ module LED_SANG_DICH_TRN_NVT_repeat(
         else 
             if( SS == 1 )
 		if(MODE == 1)
-		    LED8 = (LED8==8'h00)?(8'h18):({LED8[7:4]<<1, LED8[3:9]>>1});
+		    LED8 = (LED8==8'h00)?(8'h18):({LED8[7:4]<<1, LED8[3:0]>>1});
 		else
-		    LED8 = (LED8==8'h00)?(8'h81):({LED8[7:4]>>1, LED8[3:9]<<1});
+		    LED8 = (LED8==8'h00)?(8'h81):({LED8[7:4]>>1, LED8[3:0]<<1});
             else 
                 LED8 = LED8;
     end
@@ -433,9 +433,9 @@ module LED_SANG_DAN_TRN_NVT_repeat(
         else 
             if( SS == 1 )
 		if(MODE == 1)
-		    LED8 = (LED8==8'h00)?(8'h18):({LED8[7:4]<<1, LED8[3:9]>>1}+8'h18);
+		    LED8 = (LED8==8'h00)?(8'h18):({LED8[7:4]<<1, LED8[3:0]>>1}+8'h18);
 		else
-		    LED8 = (LED8==8'h00)?(8'h81):({LED8[7:4]>>1, LED8[3:9]<<1}+8'h18);
+		    LED8 = (LED8==8'h00)?(8'h81):({LED8[7:4]>>1, LED8[3:0]<<1}+8'h18);
             else 
                 LED8 = LED8;
     end
