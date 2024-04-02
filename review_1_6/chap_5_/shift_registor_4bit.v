@@ -12,7 +12,7 @@ module shift_reg_4bit_ver1(
     d_ff dff4(.Clock(Clock), .d(w2), .q(Q));
 endmodule
 
-vào nối tiếp ra song song
+//vào nối tiếp ra song song
 module shift_reg_4bit_ver2(
     input Clock,
     input In,

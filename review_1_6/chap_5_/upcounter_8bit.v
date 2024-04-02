@@ -12,19 +12,37 @@ module UP_CNT8b(
     output reg [7:0] OUT
 );
 
-    always @(clk, rst, SS) 
+    always @(posedge clk, rst, SS) 
     begin
             if( rst == 1) 
                 OUT = 0;
             else
-                begin 
                     if(SS == 1)
-                        if( clk ) 
-                            begin
-                                OUT <= OUT+1;
-                            end
-                end
+                        OUT = OUT+1;
+                    else
+                        OUT = OUT;
     end
 
 
 endmodule
+
+//rut gon xiu
+
+module UP_CNT8b(
+    input clk,
+    input rst,
+    input SS,
+    output reg [7:0] OUT
+);
+
+    always @(posedge clk, rst, SS) 
+    begin
+            if( rst == 1) 
+                OUT = 0;
+            else
+                OUT = OUT+SS;
+    end
+
+
+endmodule
+
