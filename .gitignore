@@ -21,3 +21,6 @@ chap_3/build/show_wave.out
 chap_5/build/_8bit_up_counter.out
 chap_5/build/d_ff.out
 chap_5/build/shift_reg_4bit.out
+chap_4_/build/*
+chap_5_/build/*
+chap_6_/build/*
