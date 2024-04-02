@@ -7,7 +7,7 @@ VD: có 2 ngõ vào các trạng thái từ 00->11 thì ngõ ra cần 4 cổng
 */
 //-------------------encode 2 - 4 ---------------------------
 //Dùng if else
-module encode_2_4(
+module decode_2_4(
   input HL,
   input EN,
   input [1:0]IN,
@@ -34,7 +34,7 @@ module encode_2_4(
 endmodule
 
 //Dùng case:
-module encode_2_4(
+module decode_2_4(
   input HL,
   input EN,
   input [1:0]IN,
@@ -93,7 +93,7 @@ module encode_2_4(
 endmodule
 
 //Không có EN:
-module encode_2_4(
+module decode_2_4(
   input [1:0]IN,
   output reg [3:0] OUT
 );
