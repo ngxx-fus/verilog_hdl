@@ -16,10 +16,10 @@ module demux_1_to_4(HL, en, sel, in, out);
         else
             begin
                 case(sel)
-                    0 : wo_HL = (in==1)?(1):(0);
-                    1 : wo_HL = (in==1)?(2):(0);
-                    2 : wo_HL = (in==1)?(4):(0);
-                    3 : wo_HL = (in==1)?(8):(0);
+                    0 : wo_HL = (in==1)?(4'b0001):(4'b0000);
+                    1 : wo_HL = (in==1)?(4'b0010):(4'b0000);
+                    2 : wo_HL = (in==1)?(4'b0100):(4'b0000);
+                    3 : wo_HL = (in==1)?(4'b1000):(4'b0000);
                 endcase
             end
     end
