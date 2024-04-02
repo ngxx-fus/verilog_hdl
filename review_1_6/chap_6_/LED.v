@@ -99,7 +99,7 @@ module LED_SANG_DICH_repeat(
     always @(posedge clk, reset) 
     begin
         if( reset == 1 )
-                LED8 = 8'h01;
+                LED8 = 8'h00
         else 
             if( SS == 1 )
 		if(MODE == 1)
