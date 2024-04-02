@@ -86,10 +86,7 @@ module updown_CNT4b_method2(
 
     always @(posedge clk, rst) 
             if( rst == 1) 
-                if(MODE == 1)
-                    OUT = MIN;
-                else 
-                    OUT = MAX;
+                OUT = (MODE)?(MIN):(MAX);
             else
                 OUT = (MODE==1)?(  (OUT==MAX)?(MIN):(OUT+SS) ):
                                 (  (OUT==MIN)?(MAX):(OUT-SS) );
