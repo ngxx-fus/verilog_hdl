@@ -97,10 +97,24 @@ module DEC24_method4(
     input HL,
     input EN,
     input [1:0] IN,
+    output reg[3:0] Y
+);
+    always @(HL, EN, IN)
+    	begin 
+    	    Y = (HL==1)? ( (EN==1)?(4'b0001<<IN):(0) ) :
+                       ( (EN==1)?(~(4'b0001<<IN)):(0) );
+    	end
+endmodule
+
+//Sử dụng toán tử, dịch bit, có HL, mô hình hành vi:
+module DEC24_method41(
+    input HL,
+    input EN,
+    input [1:0] IN,
     output [3:0] Y
 );
     reg [3:0]temp;
-    always @(HL, EN, IN)
+    always @(EN, IN)
     	begin 
     	    temp = (EN==1)?(4'b0001<<IN):(0);
     	end
