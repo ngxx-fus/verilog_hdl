@@ -6,7 +6,7 @@ Author: Nguyen Thanh Phu
 module d_ff(output reg q, input d, input Clock);
     //posedge for "low-to-high edge"
     //negedge for "high-to-low edge"
-    initial begin
+    initial begin // vô kiểm tra bỏ qua cái này nhe :v
         q <= 0;
     end
     always @(posedge Clock)
