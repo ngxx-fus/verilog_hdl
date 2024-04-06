@@ -17,5 +17,13 @@ Ngõ ra:
     FULL_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
     EMPTY_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
 */
-module sender (input wire [7:0] bus, input [7:0] SER, input clear, SH_LD, ouput MOSI, FULL_STATE, EMPTY_STATE );
+module sender (
+    input wire [7:0] bus, 
+    input [7:0] SER, 
+    input clear,
+    input SH_LD,
+    output MOSI, 
+    output FULL_STATE, 
+    output EMPTY_STATE 
+);
     
