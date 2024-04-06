@@ -22,14 +22,14 @@ Ngõ ra:
 
 module sender (
     input wire [7:0] DATA, 
-    input [7:0] SER,
+    input SER,
     input CLEAR,
     input SH_LD,
     input CLK,
-    output MOSI, 
+    output [7:0] MOSI, 
     output FULL_STATE, 
     output EMPTY_STATE 
 );
-    SHIFT_REGISTER shift_register (.CLK(CLK),.CLR(CLEAR),.P_DATA_IN(DATA),.S_DATA_IN(SER),.SH_LD(SH_LD),DATA_OUT(MOSI))
+    SHIFT_REGISTER shift_register (.CLK(CLK),.CLR(CLEAR),.P_DATA_IN(DATA),.S_DATA_IN(SER),.SH_LD(SH_LD),.DATA_OUT(MOSI));
 
 endmodule   
