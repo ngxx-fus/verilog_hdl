@@ -15,4 +15,6 @@ Ngõ vào:
 Ngõ ra:
     MOSI : Dữ liệu ra nối tiếp theo SCLK
     FULL_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
+    EMPTY_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
 */
+

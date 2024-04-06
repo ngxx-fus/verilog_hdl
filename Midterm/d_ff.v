@@ -14,8 +14,8 @@ module d_ff(output reg q, input d, input clock, input clear, input preset);
         begin
                 if (clear == 1 && preset == 1) q<=q;
                 else if (clear == 1 ) q <= 0 ;
-                else if (preset == 1) q<=1;
-                else q<=d;
+                     else if (preset == 1) q<=1;
+                          else q<=d;
         end
 endmodule
 
