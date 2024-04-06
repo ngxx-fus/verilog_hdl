@@ -41,6 +41,13 @@ module SHIFT_REGISTER (
     not(notCLR, CLR);
 
     and(D_PRE[0], S_PRE[0], notCLR); or(D_CLR[0], S_CLR[0], CLR)
+    and(D_PRE[1], S_PRE[1], notCLR); or(D_CLR[1], S_CLR[1], CLR)
+    and(D_PRE[2], S_PRE[2], notCLR); or(D_CLR[2], S_CLR[2], CLR)
+    and(D_PRE[3], S_PRE[3], notCLR); or(D_CLR[3], S_CLR[3], CLR)
+    and(D_PRE[4], S_PRE[4], notCLR); or(D_CLR[4], S_CLR[4], CLR)
+    and(D_PRE[5], S_PRE[5], notCLR); or(D_CLR[5], S_CLR[5], CLR)
+    and(D_PRE[6], S_PRE[6], notCLR); or(D_CLR[6], S_CLR[6], CLR)
+    and(D_PRE[7], S_PRE[7], notCLR); or(D_CLR[7], S_CLR[7], CLR)
 
     and(S_PRE[0], notSH_LD, P_DATA_IN[0]); nor(S_CLR[0], notSH_LD, P_DATA_IN[0]);
     and(S_PRE[1], notSH_LD, P_DATA_IN[1]); nor(S_CLR[1], notSH_LD, P_DATA_IN[1]);
