@@ -35,19 +35,20 @@ module SHIFT_REGISTER (
     d_ff dff6 (.CLK(CLK), .CLR(D_CLR[6]), .PRE(D_PRE[6]), .DATA(DATA_OUT[5]), .Q(DATA_OUT[6]) );
     d_ff dff7 (.CLK(CLK), .CLR(D_CLR[7]), .PRE(D_PRE[7]), .DATA(DATA_OUT[6]), .Q(DATA_OUT[7]) );
 
-    if(SH_LD == 0){
-        D_PRE[0] = P_DATA_IN[0]; D_CLR[0] = ~P_DATA_IN[0];
-        D_PRE[1] = P_DATA_IN[1]; D_CLR[1] = ~P_DATA_IN[1];
-        D_PRE[2] = P_DATA_IN[2]; D_CLR[2] = ~P_DATA_IN[2];
-        D_PRE[3] = P_DATA_IN[3]; D_CLR[3] = ~P_DATA_IN[3];
-        D_PRE[4] = P_DATA_IN[4]; D_CLR[4] = ~P_DATA_IN[4];
-        D_PRE[5] = P_DATA_IN[5]; D_CLR[5] = ~P_DATA_IN[5];
-        D_PRE[6] = P_DATA_IN[6]; D_CLR[6] = ~P_DATA_IN[6];
-        D_PRE[7] = P_DATA_IN[7]; D_CLR[7] = ~P_DATA_IN[7];
+    wand(.A())
+    // if(SH_LD == 0){
+    //     D_PRE[0] = P_DATA_IN[0]; D_CLR[0] = ~P_DATA_IN[0];
+    //     D_PRE[1] = P_DATA_IN[1]; D_CLR[1] = ~P_DATA_IN[1];
+    //     D_PRE[2] = P_DATA_IN[2]; D_CLR[2] = ~P_DATA_IN[2];
+    //     D_PRE[3] = P_DATA_IN[3]; D_CLR[3] = ~P_DATA_IN[3];
+    //     D_PRE[4] = P_DATA_IN[4]; D_CLR[4] = ~P_DATA_IN[4];
+    //     D_PRE[5] = P_DATA_IN[5]; D_CLR[5] = ~P_DATA_IN[5];
+    //     D_PRE[6] = P_DATA_IN[6]; D_CLR[6] = ~P_DATA_IN[6];
+    //     D_PRE[7] = P_DATA_IN[7]; D_CLR[7] = ~P_DATA_IN[7];
         
-    }else{
-        D_CLR = 8'h00;
-        D_PRE = 8'h00;
-        
-    }
+    // }else{
+    //     D_CLR = 8'h00;
+    //     D_PRE = 8'h00;
+    //     wand(.Y())
+    // }
 endmodule
