@@ -18,7 +18,7 @@ Ngõ ra:
     EMPTY_STATE : 1 - thi ghi rỗng (chưa nhận được bit nào)
 */
 
-`include "shift_register_8bit.v" //nhập mô-đun 
+`include "R_shift_register_8bit.v" //nhập mô-đun 
 
 module receiver (
     input CLR,
@@ -38,7 +38,7 @@ module receiver (
         COUNT_RECEIVED = 0;//đến số liệu dữ đã nhận
     end
 
-    SHIFT_REGISTER_8BIT shift_register_receiver (
+    R_SHIFT_REGISTER_8BIT shift_register_receiver (
         .CLK(SHIFT_REGISTER_CLK),
         .CLR(CLR),
         .P_DATA_IN(8'bzzzz_zzzz),//để trống vì không sử dụng
@@ -48,18 +48,18 @@ module receiver (
     );
 
     always @(posedge SHIFT_REGISTER_CLK, CLR)
-        if(CLR == 0)
+        if(CLR == 1)
             COUNT_RECEIVED = 0;
         else
-            COUNT_RECEIVED = COUNT_RECEIVED + 1;
+            COUNT_RECEIVED = COUNT_RECEIVED + SHIFT_REGISTER_CLK;
     //Có thêm (~READ) để khoá xung vì hoạt động đọc k tác động đến các FF-D 
     //bên trong thanh ghi và phải khoá xung clk nếu k dữ liệu sẽ thay đổi
     //và không đọc được
     //Khác với hoạt động ghi, hoạt động này can thiệp vào các FF-D bên trong
     //thanh ghi dịch thông qua các chân PRE,CLR nên không bị ảnh hưởng 
     //bởi xung CLK
-    assign SHIFT_REGISTER_CLK = CLK & RE & (~COUNT_RECEIVED[3]) & (~READ);
-    assign EMPTY_STATE        = (COUNT_RECEIVED == 4'h0)?(1'b1):(1'b0);
-    assign FULL_STATE         = COUNT_RECEIVED[3];
+    assign SHIFT_REGISTER_CLK = CLK & RE & (~FULL_STATE) & (~READ);
+    assign EMPTY_STATE        = (COUNT_RECEIVED == 3'h0)?(1'b1):(1'b0);
+    assign FULL_STATE         = (COUNT_RECEIVED == 3'h7)?(1'b1):(1'b0);
     assign DATA               = (READ==1)?(P_DATA_OUT):(8'bzzzz_zzzz);
 endmodule

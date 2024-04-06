@@ -12,7 +12,7 @@
         - [8] DATA_OUT : kết nối tới từng FF-D bên trong
 */
 
-`include "shift_register_4bit.v"
+`include "S_shift_register_4bit.v"
 
 module SHIFT_REGISTER_8BIT (
     input CLK,
@@ -22,7 +22,7 @@ module SHIFT_REGISTER_8BIT (
     input SH_LD,
     output  [7:0] DATA_OUT
 );
-    SHIFT_REGISTER_4BIT shift_register_1(
+    S_SHIFT_REGISTER_4BIT shift_register_1(
         .CLK(CLK),
         .CLR(CLR),
         .P_DATA_IN(P_DATA_IN[7:4]),
@@ -30,7 +30,7 @@ module SHIFT_REGISTER_8BIT (
         .SH_LD(SH_LD),
         .DATA_OUT(DATA_OUT[7:4])
     );
-    SHIFT_REGISTER_4BIT shift_register_0(
+    S_SHIFT_REGISTER_4BIT shift_register_0(
         .CLK(CLK),
         .CLR(CLR),
         .P_DATA_IN(P_DATA_IN[3:0]),

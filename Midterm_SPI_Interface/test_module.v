@@ -46,6 +46,8 @@ module show_wave;
         .EMPTY_STATE(R_EMPTY_STATE)
     );
 
+    assign MISO = MOSI;
+
 initial begin
     $dumpfile("show_wave.vcd"); 
     $dumpvars(0, show_wave);
@@ -72,8 +74,26 @@ initial begin
     //---------------- Đọc dữ liệu từ receiver
     READ = 1;
     #20;
+    READ = 0;
+    //---------------- xoá thanh ghi hai bên
+    CLR = 1;
+    #10;
+    CLR = 0;
+    //---------------- Ghi dữ liệu chuẩn bị gởi
+    WRITE = 1;
+    #5;
+    WRITE = 0;
+    //---------------- Gởi dữ liệu, nhưng bên nhận chưa k chấp nhận
+    TE = 1; RE = 0;
+    #80;
+
+    #30;
+    TE = 0; RE = 0;
+    //---------------- Thử đọc dữ liệu
     READ = 1;
-    //
+    #20;
+    READ = 0;
+    //----------------
     $display("Test completed!");
 end
 endmodule

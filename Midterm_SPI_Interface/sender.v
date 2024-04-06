@@ -18,7 +18,7 @@ Ngõ ra:
     EMPTY_STATE : 1 - khi đã gởi hết 8 bit
 */
 
-`include "shift_register_8bit.v" //nhập mô-đun 
+`include "S_shift_register_8bit.v" //nhập mô-đun 
 
 module sender (
     input [7:0] DATA, 

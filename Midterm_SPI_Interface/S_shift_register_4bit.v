@@ -12,9 +12,9 @@
         - [4] DATA_OUT : kết nối tới từng FF-D bên trong
 */
 
-`include "d_ff.v"
+`include "S_d_ff.v"
 
-module SHIFT_REGISTER_4BIT (
+module S_SHIFT_REGISTER_4BIT (
     input CLK,
     input CLR,
     input [3:0] P_DATA_IN,
@@ -31,10 +31,10 @@ module SHIFT_REGISTER_4BIT (
     wire [3:0]D_PRE;
     wire [3:0]S_PRE;
     
-    d_ff dff0 (.CLK(CLK), .CLR(D_CLR[0]), .PRE(D_PRE[0]), .DATA(S_DATA_IN),   .Q(DATA_OUT[0]) );
-    d_ff dff1 (.CLK(CLK), .CLR(D_CLR[1]), .PRE(D_PRE[1]), .DATA(DATA_OUT[0]), .Q(DATA_OUT[1]) );
-    d_ff dff2 (.CLK(CLK), .CLR(D_CLR[2]), .PRE(D_PRE[2]), .DATA(DATA_OUT[1]), .Q(DATA_OUT[2]) );
-    d_ff dff3 (.CLK(CLK), .CLR(D_CLR[3]), .PRE(D_PRE[3]), .DATA(DATA_OUT[2]), .Q(DATA_OUT[3]) );
+    S_d_ff dff0 (.CLK(CLK), .CLR(D_CLR[0]), .PRE(D_PRE[0]), .DATA(S_DATA_IN),   .Q(DATA_OUT[0]) );
+    S_d_ff dff1 (.CLK(CLK), .CLR(D_CLR[1]), .PRE(D_PRE[1]), .DATA(DATA_OUT[0]), .Q(DATA_OUT[1]) );
+    S_d_ff dff2 (.CLK(CLK), .CLR(D_CLR[2]), .PRE(D_PRE[2]), .DATA(DATA_OUT[1]), .Q(DATA_OUT[2]) );
+    S_d_ff dff3 (.CLK(CLK), .CLR(D_CLR[3]), .PRE(D_PRE[3]), .DATA(DATA_OUT[2]), .Q(DATA_OUT[3]) );
 
     not(notSH_LD, SH_LD);
     // assign notSH_LD=SH_LD;
