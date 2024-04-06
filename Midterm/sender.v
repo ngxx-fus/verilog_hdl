@@ -21,8 +21,8 @@ Ngõ ra:
 `include "shift_register.v" //nhập mô-đun 
 
 module sender (
-    input wire [7:0] DATA, 
-    input SER,
+    input [7:0] DATA, 
+    input [7:0] SER,
     input CLEAR,
     input SH_LD,
     input CLK,
