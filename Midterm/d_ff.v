@@ -9,7 +9,7 @@ module d_ff(output reg Q, input DATA, input CLK, input CLR, input PRE);
     //negedge for "high-to-low edge"
     initial begin // vô kiểm tra bỏ qua cái này nhe :v
         Q <= 0;
-    end
+        end
     always @(posedge CLK, CLR, PRE)
         begin
                 if (CLR == 1 && PRE == 1) Q<=Q;
