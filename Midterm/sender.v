@@ -17,6 +17,9 @@ Ngõ ra:
     FULL_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
     EMPTY_STATE : 1 khi dữ liệu chưa dịch ra hết và 0 khi sẵn sàng ghi
 */
+
+`include "d_ff.v" //nhập mô-đun 
+
 module sender (
     input wire [7:0] bus, 
     input [7:0] SER, 
@@ -27,3 +30,5 @@ module sender (
     output EMPTY_STATE 
 );
     
+
+endmodule   
