@@ -10,7 +10,7 @@ Ngõ vào:
             + Ngõ ra của thanh ghi vào OUT
             + [8] DATA ở trạng thái trở kháng cao
             + Dịch từ MISO vào thanh ghi
-    SCLK
+    SCLK : Xung clock đồng bộ
 Ngõ ra:
     OUT : Dữ liệu ra nối tiếp từ thanh ghi (thường để trống)
     [8] DATA : Dữ liệu ra song song
