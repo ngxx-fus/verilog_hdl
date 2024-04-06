@@ -6,7 +6,7 @@ Ngõ vào:
     SH_LD  : Đọc ghi, SH_LD = 0 ghi, SH_LD = 1 dịch
         *Chế độ ghi, đồng bộ với xung SCLK: 
             + Ngưng dịch
-            + Set trạng thái của thanh ghi theo trạng thái ngõ vào
+            + Set trạng thái của thanh ghi theo trạng thái ngõ vào [8] DATA
         *Chế độ dịch SH_LD = 1:
             + DATA[8] ở trạng thái trở kháng cao
             + Dịch ngõ vào SER
@@ -26,7 +26,7 @@ module sender (
     input SH_LD,
     input TE,
     input CLK,
-    output [7:0] MOSI, 
+    output MOSI, 
     output FULL_STATE, 
     output EMPTY_STATE 
 );
@@ -50,15 +50,15 @@ module sender (
     );
 
     and(SHREG_CLK, CLK, TE, ~SR_count_sent[3]);
+    nand(EMPTY_STATE, SR_count_sent[0], SR_count_sent[1], SR_count_sent[2], SR_count_sent[3]);
 
-    always @(posedge SHREG_CLK)
-        if(CLR == 1)
+    always @(posedge SHREG_CLK, SH_LD, CLR)
+        if(CLR == 1 || SH_LD == 0)
             SR_count_sent = 0;
         else
             SR_count_sent = SR_count_sent + 1;
 
-    assign MISO = P_DATA_OUT[7];
-    assign EMPTY_STATE = SR_count_sent[0]&SR_count_sent[1]&SR_count_sent[2]&SR_count_sent[3];
+    assign MOSI = P_DATA_OUT[7];
     assign FULL_STATE = SR_count_sent[3];
 
 endmodule   
