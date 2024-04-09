@@ -9,10 +9,10 @@
             + SH_LD = 0, vào song song, ngưng Dịch
             + SH_LD = 1, dịch
     Ngõ ra
-        - [8] DATA_OUT : kết nối tới từng FF-D bên trong
+        - [8] P_DATA_OUT : kết nối tới từng FF-D bên trong
 */
 
-`include "S_shift_register_4bit.v"
+`include "shift_register_4bit.v"
 
 module SHIFT_REGISTER_8BIT (
     input CLK,
@@ -20,24 +20,24 @@ module SHIFT_REGISTER_8BIT (
     input [7:0] P_DATA_IN,
     input S_DATA_IN,
     input SH_LD,
-    output  [7:0] DATA_OUT
+    output  [7:0] P_DATA_OUT
 );
-    S_SHIFT_REGISTER_4BIT shift_register_1(
+
+    SHIFT_REGISTER_4BIT shift_register_0(
         .CLK(CLK),
         .CLR(CLR),
         .P_DATA_IN(P_DATA_IN[7:4]),
-        .S_DATA_IN(DATA_OUT[3]),
+        .S_DATA_IN(S_DATA_IN),
         .SH_LD(SH_LD),
-        .DATA_OUT(DATA_OUT[7:4])
+        .P_DATA_OUT(P_DATA_OUT[7:4])
     );
-    S_SHIFT_REGISTER_4BIT shift_register_0(
+    SHIFT_REGISTER_4BIT shift_register_1(
         .CLK(CLK),
         .CLR(CLR),
         .P_DATA_IN(P_DATA_IN[3:0]),
-        .S_DATA_IN(S_DATA_IN),
+        .S_DATA_IN(P_DATA_OUT[4]),
         .SH_LD(SH_LD),
-        .DATA_OUT(DATA_OUT[3:0])
+        .P_DATA_OUT(P_DATA_OUT[3:0])
     );
-
 endmodule
 

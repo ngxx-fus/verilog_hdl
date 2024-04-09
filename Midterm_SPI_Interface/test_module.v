@@ -3,12 +3,11 @@ Module name: Only using for show wave
 Author: Nguyen Thanh Phu
 */
 `timescale 1ns/1ns
-`include "sender.v"
-`include "receiver.v"
+`include "sender_receiver.v"
 `include "clk_generator.v"
 
 module show_wave;
-    reg[7:0] DATA_IN = 8'b0110_0010;
+    reg[7:0] DATA_IN;
     reg CLR = 0;
     reg WRITE = 0;
     reg READ = 0;
@@ -51,7 +50,9 @@ module show_wave;
 initial begin
     $dumpfile("show_wave.vcd"); 
     $dumpvars(0, show_wave);
+
     //---------------- Trạng thái ban đầu
+    DATA_IN = 8'b0100_0011;
     #20;
     //---------------- Nhấn CLR
     CLR = 0;
@@ -62,7 +63,12 @@ initial begin
     #10;
     WRITE = 0;
     //---------------- Rỗi, k ghi, k truyền
-    #40;
+    #20
+    DATA_IN = 8'b0101_1111;
+    WRITE = 1;
+    #10;
+    WRITE = 0;
+    #20;
     //---------------- Truyền dữ liệu
     TE = 1; RE = 1;
     #80;
