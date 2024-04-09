@@ -18,6 +18,7 @@ Ngõ ra:
     MOSI : Dữ liệu ra nối tiếp theo SCLK
     FULL_STATE : 1 - thanh ghi đầy (khi chưa gởi đi bit nào)
     EMPTY_STATE : 1 - khi đã gởi hết 8 bit
+
 */
 
 module sender (
@@ -31,16 +32,15 @@ module sender (
     output EMPTY_STATE 
 );
     wire [7:0] P_DATA_OUT;//dây nối 8 chân ngõ ra song song của thanh ghi dịch
-    reg [3:0] COUNT_SENT;//đếm số bit đã gởi 
+    reg [3:0] COUNT_SENT;//đếm số bit đã gởi, kiểm soát trạng thái rỗng/đầy của thanh ghi dịch
     wire SHIFT_CLK;//dây nối đến chân CLK của thanh ghi dịch
     wire LOW, HIGH;
 
     initial begin
-        COUNT_SENT = 4'b1000;//đến số liệu dữ đã gởi
+        COUNT_SENT = 4'b1000;//đến số liệu dữ đã gởi, ban đầu thanh ghi rỗng!
     end
 
-    SHIFT_REGISTER_8BIT
-    sender_shift_register(
+    SHIFT_REGISTER_8BIT sender_shift_register(
         .CLK(SHIFT_CLK),
         .CLR(CLR),
         .P_DATA_IN(DATA),
@@ -68,7 +68,7 @@ endmodule
 
 
 
-//-------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
 /*
 Module name: receiver
 Ngõ vào:
@@ -99,36 +99,42 @@ module receiver (
     output FULL_STATE, 
     output EMPTY_STATE 
 );
+    wire LOW, HIGH;
     wire [7:0] P_DATA_OUT;//dây nối 8 chân ngõ ra song song của thanh ghi dịch
     reg [3:0] COUNT_RECEIVED;//đếm số bit đã nhận
-    wire SHIFT_REGISTER_CLK;//dây nối đến chân CLK của thanh ghi dịch
+    wire SHIFT_CLK;//dây nối đến chân CLK của thanh ghi dịch
 
     initial begin
         COUNT_RECEIVED = 0;//đến số liệu dữ đã nhận
     end
 
-    SHIFT_REGISTER_8BIT shift_register_receiver (
-        .CLK(SHIFT_REGISTER_CLK),
+    SHIFT_REGISTER_8BIT receiver_shift_register (
+        .CLK(SHIFT_CLK),
         .CLR(CLR),
         .P_DATA_IN(8'bzzzz_zzzz),//để trống vì không sử dụng
         .S_DATA_IN(MISO),
-        .SH_LD(1'b1),//luôn ở trạng thái dịch, điều khiển bằng xung CLK
+        .SH_LD(HIGH),//luôn ở trạng thái dịch, điều khiển bằng xung CLK
         .P_DATA_OUT(P_DATA_OUT)
     );
 
-    always @(posedge SHIFT_REGISTER_CLK, CLR)
+    always @(posedge CLK, CLR)
         if(CLR == 1)
-            COUNT_RECEIVED = 0;
+            COUNT_RECEIVED = 4'b0000; // chưa nhận bit nào = rỗng
         else
-            COUNT_RECEIVED = COUNT_RECEIVED + SHIFT_REGISTER_CLK;
+            if( RE & (~FULL_STATE) & (~READ) == HIGH ) //vẫn cho phép nhận và chưa đầy
+                COUNT_RECEIVED = COUNT_RECEIVED + 1;
+    always @(posedge READ)
+        COUNT_RECEIVED = 4'b0000;
     //Có thêm (~READ) để khoá xung vì hoạt động đọc k tác động đến các FF-D 
     //bên trong thanh ghi và phải khoá xung clk nếu k dữ liệu sẽ thay đổi
     //và không đọc được
     //Khác với hoạt động ghi, hoạt động này can thiệp vào các FF-D bên trong
     //thanh ghi dịch thông qua các chân PRE,CLR nên không bị ảnh hưởng 
     //bởi xung CLK
-    assign SHIFT_REGISTER_CLK = CLK & RE & (~FULL_STATE) & (~READ);
-    assign EMPTY_STATE        = (COUNT_RECEIVED == 3'h0)?(1'b1):(1'b0);
-    assign FULL_STATE         = (COUNT_RECEIVED == 3'h7)?(1'b1):(1'b0);
+    assign LOW = 1'b0;
+    assign HIGH = 1'b1;  
+    assign SHIFT_CLK = CLK & RE & (~FULL_STATE) & (~READ);
+    assign EMPTY_STATE        = (COUNT_RECEIVED == 4'B0000)?(HIGH):(LOW);
+    assign FULL_STATE         = (COUNT_RECEIVED == 4'B1000)?(HIGH):(LOW);
     assign DATA               = (READ==1)?(P_DATA_OUT):(8'bzzzz_zzzz);
 endmodule
