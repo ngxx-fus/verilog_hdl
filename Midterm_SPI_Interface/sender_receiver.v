@@ -128,12 +128,6 @@ module receiver (
 
     always @(CLK)
         SHIFT_CLK = #5 CLK & RE & (~FULL_STATE) & (~READ);
-    //Có thêm (~READ) d? khoá xung vì ho?t d?ng d?c k tác d?ng d?n các FF-D 
-    //bên trong thanh ghi và ph?i khoá xung clk n?u k d? li?u s? thay d?i
-    //và không d?c du?c
-    //Khác v?i ho?t d?ng ghi, ho?t d?ng này can thi?p vào các FF-D bên trong
-    //thanh ghi d?ch thông qua các chân PRE,CLR nên không b? ?nh hu?ng 
-    //b?i xung CLK
     assign LOW = 1'b0;
     assign HIGH = 1'b1;  
     assign EMPTY_STATE        = (COUNT_RECEIVED == 4'B0000)?(HIGH):(LOW);
