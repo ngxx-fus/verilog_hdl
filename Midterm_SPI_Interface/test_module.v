@@ -87,7 +87,7 @@ initial begin
     CLR = 0;
     //---------------- Ghi dữ liệu chuẩn bị gởi
     WRITE = 1;
-    #5;
+    #7;
     WRITE = 0;
     //---------------- Gởi dữ liệu, nhưng bên nhận chưa k chấp nhận
     TE = 1; RE = 0;

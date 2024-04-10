@@ -58,7 +58,7 @@ module sender (
                 COUNT_SENT = COUNT_SENT + 1;
     always @(posedge WRITE)
         COUNT_SENT = 4'b0000;
-    always @(posedge CLK, negedge CLK)
+    always @(CLK))
         SHIFT_CLK = #10 CLK & TE;
 
     assign LOW = 1'b0;
