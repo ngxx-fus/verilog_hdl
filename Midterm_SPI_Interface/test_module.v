@@ -98,6 +98,7 @@ initial begin
 
     #30;
     TE = 0; RE = 0;
+    #50;
     //---------------- Th? d?c d? li?u
     READ = 1;
     #20;
