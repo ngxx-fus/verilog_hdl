@@ -51,33 +51,33 @@ initial begin
     $dumpfile("show_wave.vcd"); 
     $dumpvars(0, show_wave);
 
-    //---------------- Trạng thái ban đầu
+    //---------------- Tr?ng thái ban d?u
     DATA_IN = 8'b0100_0011;
     #20;
-    //---------------- Nhấn CLR
+    //---------------- Nh?n CLR
     CLR = 0;
     CLR = 1 ; #10;
     CLR = 0;
-    //---------------- Ghi dữ liệu lên thanh ghi
+    //---------------- Ghi d? li?u lên thanh ghi
     WRITE = 1;
     #10;
     WRITE = 0;
-    //---------------- Rỗi, k ghi, k truyền
+    //---------------- R?i, k ghi, k truy?n
     #20
     DATA_IN = 8'b0101_1111;
     WRITE = 1;
     #10;
     WRITE = 0;
     #20;
-    //---------------- Truyền dữ liệu
+    //---------------- Truy?n d? li?u
     TE = 1; RE = 1;
     #80;
 
     #30;
     TE = 0; RE = 0;
-    //---------------- Rỗi
+    //---------------- R?i
     #30;
-    //---------------- Đọc dữ liệu từ receiver
+    //---------------- Ð?c d? li?u t? receiver
     READ = 1;
     #20;
     READ = 0;
@@ -85,18 +85,18 @@ initial begin
     CLR = 1;
     #10;
     CLR = 0;
-    //---------------- Ghi dữ liệu chuẩn bị gởi
+    //---------------- Ghi d? li?u chu?n b? g?i
     WRITE = 1;
     #7;
     WRITE = 0;
     #9
-    //---------------- Gởi dữ liệu, nhưng bên nhận chưa k chấp nhận
+    //---------------- G?i d? li?u, nhung bên nh?n chua k ch?p nh?n
     TE = 1; RE = 0;
     #80;
 
     #30;
     TE = 0; RE = 0;
-    //---------------- Thử đọc dữ liệu
+    //---------------- Th? d?c d? li?u
     READ = 1;
     #20;
     READ = 0;
