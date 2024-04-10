@@ -89,6 +89,7 @@ initial begin
     WRITE = 1;
     #7;
     WRITE = 0;
+    #9
     //---------------- Gởi dữ liệu, nhưng bên nhận chưa k chấp nhận
     TE = 1; RE = 0;
     #80;

@@ -58,8 +58,8 @@ module sender (
                 COUNT_SENT = COUNT_SENT + 1;
     always @(posedge WRITE)
         COUNT_SENT = 4'b0000;
-    always @(CLK))
-        SHIFT_CLK = #10 CLK & TE;
+    always @(CLK)
+        SHIFT_CLK = #5 CLK & TE;
 
     assign LOW = 1'b0;
     assign HIGH = 1'b1;  
@@ -129,7 +129,7 @@ module receiver (
     always @(posedge READ)
         COUNT_RECEIVED = 4'b0000;
     always @(posedge CLK, negedge CLK)
-        SHIFT_CLK = #10 CLK & RE & (~FULL_STATE) & (~READ);
+        SHIFT_CLK = #5 CLK & RE & (~FULL_STATE) & (~READ);
     //Có thêm (~READ) để khoá xung vì hoạt động đọc k tác động đến các FF-D 
     //bên trong thanh ghi và phải khoá xung clk nếu k dữ liệu sẽ thay đổi
     //và không đọc được
