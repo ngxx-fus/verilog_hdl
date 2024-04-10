@@ -91,8 +91,10 @@ initial begin
     WRITE = 0;
     #9
     //---------------- G?i d? li?u, nhung bên nh?n chua k ch?p nh?n
-    TE = 1; RE = 0;
-    #80;
+    TE = 1; RE = 1;
+    #30;
+    RE = 1;
+    #50;
 
     #30;
     TE = 0; RE = 0;
