@@ -32,13 +32,13 @@ module sender (
     output FULL_STATE, 
     output EMPTY_STATE 
 );
-    wire [7:0] P_DATA_OUT;//dây nối 8 chân ngõ ra song song của thanh ghi dịch
-    reg [3:0] COUNT_SENT;//đếm số bit đã gởi, kiểm soát trạng thái rỗng/đầy của thanh ghi dịch
-    reg SHIFT_CLK;//dây nối đến chân CLK của thanh ghi dịch
+    wire [7:0] P_DATA_OUT;//dây n?i 8 chân ngõ ra song song c?a thanh ghi d?ch
+    reg [3:0] COUNT_SENT;//d?m s? bit dã g?i, ki?m soát tr?ng thái r?ng/d?y c?a thanh ghi d?ch
+    reg SHIFT_CLK;//dây n?i d?n chân CLK c?a thanh ghi d?ch
     wire LOW, HIGH;
 
     initial begin
-        COUNT_SENT = 4'b1000;//đến số liệu dữ đã gởi, ban đầu thanh ghi rỗng!
+        COUNT_SENT = 4'b1000;//d?n s? li?u d? dã g?i, ban d?u thanh ghi r?ng!
     end
 
     SHIFT_REGISTER_8BIT sender_shift_register(
@@ -50,14 +50,13 @@ module sender (
         .P_DATA_OUT(P_DATA_OUT)
     );
 
-    always @(posedge SHIFT_CLK, CLR)
+    always @(SHIFT_CLK, CLR, WRITE)
         if(CLR == 1)
             COUNT_SENT = 4'b1000;
-        else
-            if(TE == HIGH && EMPTY_STATE == LOW)
-                COUNT_SENT = COUNT_SENT + 1;
-    always @(posedge WRITE)
-        COUNT_SENT = 4'b0000;
+        else if(WRITE == 1)
+				 COUNT_SENT = 4'b0000;
+				 else if(TE == HIGH && EMPTY_STATE == LOW)
+                  COUNT_SENT = COUNT_SENT + 1;
     always @(CLK)
         SHIFT_CLK = #5 CLK & TE;
 
@@ -67,7 +66,7 @@ module sender (
     assign MOSI = (TE == HIGH)?(P_DATA_OUT[0]):(LOW);
     assign EMPTY_STATE = (COUNT_SENT == 4'b1000) ? HIGH : LOW;
     assign FULL_STATE = ((COUNT_SENT == 4'b0000))? HIGH : LOW;
-endmodule   
+endmodule     
 
 
 
@@ -103,39 +102,38 @@ module receiver (
     output EMPTY_STATE 
 );
     wire LOW, HIGH;
-    wire [7:0] P_DATA_OUT;//dây nối 8 chân ngõ ra song song của thanh ghi dịch
-    reg [3:0] COUNT_RECEIVED;//đếm số bit đã nhận
-    reg SHIFT_CLK;//dây nối đến chân CLK của thanh ghi dịch
+    wire [7:0] P_DATA_OUT;//dây n?i 8 chân ngõ ra song song c?a thanh ghi d?ch
+    reg [3:0] COUNT_RECEIVED;//d?m s? bit dã nh?n
+    reg SHIFT_CLK;//dây n?i d?n chân CLK c?a thanh ghi d?ch
 
     initial begin
-        COUNT_RECEIVED = 0;//đến số liệu dữ đã nhận
+        COUNT_RECEIVED = 0;//d?n s? li?u d? dã nh?n
     end
 
     SHIFT_REGISTER_8BIT receiver_shift_register (
         .CLK(SHIFT_CLK),
         .CLR(CLR),
-        .P_DATA_IN(8'bzzzz_zzzz),//để trống vì không sử dụng
+        .P_DATA_IN(8'bzzzz_zzzz),//d? tr?ng vì không s? d?ng
         .S_DATA_IN(MISO),
-        .SH_LD(HIGH),//luôn ở trạng thái dịch, điều khiển bằng xung CLK
+        .SH_LD(HIGH),//luôn ? tr?ng thái d?ch, di?u khi?n b?ng xung CLK
         .P_DATA_OUT(P_DATA_OUT)
     );
 
-    always @(posedge SHIFT_CLK, CLR)
-        if(CLR == 1)
-            COUNT_RECEIVED = 4'b0000; // chưa nhận bit nào = rỗng
+    always @(SHIFT_CLK, CLR, READ)
+        if(CLR == HIGH || READ == HIGH)
+            COUNT_RECEIVED = 4'b0000; // chua nh?n bit nào = r?ng
         else
-            if( RE & (~FULL_STATE) & (~READ) == HIGH ) //vẫn cho phép nhận và chưa đầy
-                COUNT_RECEIVED = COUNT_RECEIVED + 1;
-    always @(posedge READ)
-        COUNT_RECEIVED = 4'b0000;
-    always @(posedge CLK, negedge CLK)
+            if( RE & (~FULL_STATE) & (~READ) == HIGH ) //v?n cho phép nh?n và chua d?y
+                COUNT_RECEIVED = COUNT_RECEIVED + 4'b0001;
+
+    always @(CLK)
         SHIFT_CLK = #5 CLK & RE & (~FULL_STATE) & (~READ);
-    //Có thêm (~READ) để khoá xung vì hoạt động đọc k tác động đến các FF-D 
-    //bên trong thanh ghi và phải khoá xung clk nếu k dữ liệu sẽ thay đổi
-    //và không đọc được
-    //Khác với hoạt động ghi, hoạt động này can thiệp vào các FF-D bên trong
-    //thanh ghi dịch thông qua các chân PRE,CLR nên không bị ảnh hưởng 
-    //bởi xung CLK
+    //Có thêm (~READ) d? khoá xung vì ho?t d?ng d?c k tác d?ng d?n các FF-D 
+    //bên trong thanh ghi và ph?i khoá xung clk n?u k d? li?u s? thay d?i
+    //và không d?c du?c
+    //Khác v?i ho?t d?ng ghi, ho?t d?ng này can thi?p vào các FF-D bên trong
+    //thanh ghi d?ch thông qua các chân PRE,CLR nên không b? ?nh hu?ng 
+    //b?i xung CLK
     assign LOW = 1'b0;
     assign HIGH = 1'b1;  
     assign EMPTY_STATE        = (COUNT_RECEIVED == 4'B0000)?(HIGH):(LOW);
