@@ -1,18 +1,26 @@
 `include "sender_receiver.v"
+`include "control.v"
+`include "status.v"
 
-module SPI_Interface(
+module SPI_INTERFACE(
+	input MS,
 	input CLK,
-	input S_CLK,
+	input PRESET,//*
 	input MISO,
-	input [7:0] P_DATA_IN,
-	input MS_MODE, //MASTER or SLAVE
+	input [7:0] P_DATA_IN,//*
+	input MS_MODE, //MASTER or SLAVE    //*
+	inout S_CLK,
+	input [7:0] CONTROL,
 	output MOSI,
-	output SS, //slave select 
-	output [7:0] P_DATA_OUT,
+	output SS, //slave select     //*
+	output [7:0] P_DATA_OUT,    //*
+	output CS
 );
 	wire LOW, HIGH;
 
 	reg [7:0] temp;
+	wire SENDER_BUFFER;
+
 	wire SENDER_CLK;
 	wire SENDER_CLR;
 	wire SENDER_WRITE;
@@ -49,19 +57,6 @@ module SPI_Interface(
 		.MISO(MISO)
 	);
 	
-	assign SENDER_CLK = CLK;
-	assign SENDER_CLR = GPIO[1];
-	assign SENDER_WRITE = GPIO[2];
-	assign TE = GPIO[3];
-	assign GPIO[4] = SENDER_REG_FULL;
-	assign GPIO[5] = SENDER_REG_EMPTY;
-	
-	assign RECEIVER_CLK = CLK;
-	assign RECEIVER_CLR = GPIO[7];
-	assign RECEIVER_READ = GPIO[8];
-	assign RE = GPIO[9];
-	assign GPIO[10] = RECEIVER_REG_FULL;
-	assign GPIO[11] = RECEIVER_REG_EMPTY;
 
 	assign LOW = 1'b0;
 	assign HIGH = 1'b1;

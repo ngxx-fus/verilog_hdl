@@ -7,7 +7,7 @@ module SHIFT_REGISTER_8BIT (
     input [7:0] P_DATA_IN,
     input S_DATA_IN,
     input SH_LD,
-    output  [7:0] P_DATA_OUT
+    output[7:0] P_DATA_OUT
 );
 
     SHIFT_REGISTER_4BIT shift_register_0(
