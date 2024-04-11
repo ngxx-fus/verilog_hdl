@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/MID_PROPR/show_wave_isim_beh.exe" -prj "/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/MID_PROPR/show_wave_beh.prj" "work.show_wave" "work.glbl" 

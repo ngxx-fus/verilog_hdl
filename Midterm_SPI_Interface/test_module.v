@@ -1,30 +1,27 @@
-/*
-Module name: Only using for show wave
-Author: Nguyen Thanh Phu
-*/
 `timescale 1ns/1ns
 `include "sender_receiver.v"
 `include "clk_generator.v"
 
-module show_wave;
+module show_wave(
+    output MOSI,
+    output MISO,
+    output S_FULL_STATE,
+    output S_EMPTY_STATE,
+    output R_FULL_STATE,
+    output R_EMPTY_STATE,
+    output clk_out,
+    output [7:0] DATA_OUT
+);
     reg[7:0] DATA_IN;
     reg CLR = 0;
     reg WRITE = 0;
     reg READ = 0;
     reg TE = 0;
     reg RE = 0;
-    wire MOSI;
-    wire MISO;
-    wire S_FULL_STATE;
-    wire S_EMPTY_STATE;
-    wire R_FULL_STATE;
-    wire R_EMPTY_STATE;
-    wire clk_out;
-    wire [7:0] DATA_OUT;
 
     clk_gen clk_gen_ins(.clk(clk_out));
 
-    sender sender_test(
+    SENDER sender_test(
         .DATA(DATA_IN), 
         .CLR(CLR),
         .WRITE(WRITE),
@@ -34,7 +31,7 @@ module show_wave;
         .FULL_STATE(S_FULL_STATE), 
         .EMPTY_STATE(S_EMPTY_STATE)
     );
-    receiver receiver_test(
+    RECEIVER receiver_test(
         .CLR(CLR),
         .READ(READ),
         .RE(RE),
@@ -48,8 +45,6 @@ module show_wave;
     assign MISO = MOSI;
 
 initial begin
-    $dumpfile("show_wave.vcd"); 
-    $dumpvars(0, show_wave);
 
     //---------------- Tr?ng thái ban d?u
     DATA_IN = 8'b0100_0011;
@@ -104,10 +99,6 @@ initial begin
     #20;
     READ = 0;
     //----------------
-    $display("Test completed!");
 end
 endmodule
 
-/*
-iverilog -o show_wave.vvp show_wave.v; vvp show_wave.vvp; gtkwave show_wave.vcd
-*/

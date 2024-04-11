@@ -1,15 +1,7 @@
 `timescale 100ps/100ps
-/*
-Module name: D flipflop
-CLR : k d?ng b?, d?t ngõ ra m?c 0 khi CLR = 1, còn l?i 0,z thì k tác d?ng
-PRE : k d?ng b?, d?t ngõ ra m?c 1 khi PRE = 1, còn l?i 0,z thì k tác d?ng
-NOTE: Khi c? posedge CLK, CLR, PRE cùng tác d?ng thì uu tiên CLR, PRE
-*/
 
 module d_ff(output reg Q, input DATA, input CLK, input CLR, input PRE);
-    //posedge for "low-to-high edge"
-    //negedge for "high-to-low edge"
-    initial begin // vô ki?m tra b? qua cái này nhe :v
+    initial begin
         Q = 1'b0;
         end
     always @(CLK, CLR, PRE)
@@ -23,3 +15,4 @@ module d_ff(output reg Q, input DATA, input CLK, input CLR, input PRE);
             else #5 Q = Q;
         end
 endmodule
+

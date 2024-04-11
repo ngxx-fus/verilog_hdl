@@ -1,0 +1,7 @@
+MO RECEIVER NULL sender_receiver.v vlg61/_r_e_c_e_i_v_e_r.bin 1712820063
+MO clk_gen NULL clk_generator.v vlg6B/clk__gen.bin 1712820063
+MO SHIFT_REGISTER_8BIT NULL shift_register_8bit.v vlg10/_s_h_i_f_t___r_e_g_i_s_t_e_r__8_b_i_t.bin 1712820063
+MO d_ff NULL d_ff.v vlg7F/d__ff.bin 1712820063
+MO show_wave NULL test_module.v vlg1B/show__wave.bin 1712820063
+MO SHIFT_REGISTER_4BIT NULL shift_register_4bit.v vlg1C/_s_h_i_f_t___r_e_g_i_s_t_e_r__4_b_i_t.bin 1712820063
+MO SENDER NULL sender_receiver.v vlg09/_s_e_n_d_e_r.bin 1712820063

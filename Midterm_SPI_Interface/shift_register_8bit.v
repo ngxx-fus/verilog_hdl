@@ -1,16 +1,3 @@
-/*
-    Thanh ghi dịch 8bit
-    Ngõ vào:
-        - Xung CLK 
-        - CLEAR : đạt toàn bộ ngõ ra trong thanh ghi dịch về 0
-        - [8] P_DATA_IN : giá trị để đặt trước (vào song song)
-        - S_DATA_IN : vào nối tiếp
-        - SH_LD : đặt trước giá trị hoặc dịch
-            + SH_LD = 0, vào song song, ngưng Dịch
-            + SH_LD = 1, dịch
-    Ngõ ra
-        - [8] P_DATA_OUT : kết nối tới từng FF-D bên trong
-*/
 
 `include "shift_register_4bit.v"
 
