@@ -29,7 +29,7 @@ module STATUS_COMBINATION (
     // STATUS [3]
     always @(posedge S_CLK)//RESET STATUS[3] when CLEAR 
     begin   
-        if (SENDER_REG_EMPTY == ~HIGH && SENDER_WRITE == HIGH)//SENDER_REG_EMPTY <> HIGH & WRITE
+	    if (SENDER_REG_EMPTY == LOW && SENDER_WRITE == HIGH)//SENDER_REG_EMPTY <> HIGH & WRITE
             STATUS[3] = HIGH;
         else if (CLR == HIGH)
             STATUS[3] = LOW;
@@ -54,7 +54,7 @@ module STATUS_COMBINATION (
     //  STATUS[6]
     always @ (RECEIVER_REG_FULL)
     begin
-        STATUS [6] = RECEIVER_REG_FULL ;
+	    STATUS [6] = ~RECEIVER_REG_EMPTY  ;
     end
 
 
