@@ -41,7 +41,7 @@ module STATUS_COMBINATION (
     // ~SENDER_REG_EMPTY
     always @ (SENDER_REG_EMPTY)
     begin
-         STATUS [4] = ~SENDER_REG_EMPTY;
+         STATUS [4] = SENDER_REG_EMPTY;
     end
     //  STATUS[5]
     always @ (SENDER_REG_EMPTY)
