@@ -1,6 +1,6 @@
 module STATUS_COMBINATION (
-	 input SENDER_REG_FULL,
-	 input SENDER_REG_EMPTY,
+	input SENDER_REG_FULL,
+	input SENDER_REG_EMPTY,
     input RECEIVER_REG_FULL,
     input RECEIVER_REG_EMPTY,
     input S_CLK,
@@ -10,10 +10,11 @@ module STATUS_COMBINATION (
 );
     wire HIGH, LOW;
     initial begin
-        STATUS[0] = 1'bz;
-		STATUS[1] = 1'bz;
-		STATUS[5] = 1'bz;
-		STATUS[7] = 1'bz;
+        STATUS = 8'h30;
+    end
+
+    always @(CLR) begin
+        STATUS = 8'h30;
     end
 
     //STATUS[2]
@@ -29,7 +30,7 @@ module STATUS_COMBINATION (
     // STATUS [3]
     always @(posedge S_CLK)//RESET STATUS[3] when CLEAR 
     begin   
-        if (SENDER_REG_EMPTY == ~HIGH && SENDER_WRITE == HIGH)//SENDER_REG_EMPTY <> HIGH & WRITE
+	    if (SENDER_REG_EMPTY == LOW && SENDER_WRITE == HIGH)//SENDER_REG_EMPTY <> HIGH & WRITE
             STATUS[3] = HIGH;
         else if (CLR == HIGH)
             STATUS[3] = LOW;
@@ -38,10 +39,10 @@ module STATUS_COMBINATION (
     end
 
     //  STATUS[4]
-    // ~SENDER_REG_EMPTY
+    //  SENDER_REG_EMPTY
     always @ (SENDER_REG_EMPTY)
     begin
-         STATUS [4] = ~SENDER_REG_EMPTY;
+         STATUS [4] = SENDER_REG_EMPTY;
     end
     //  STATUS[5]
     always @ (SENDER_REG_EMPTY)
@@ -54,7 +55,7 @@ module STATUS_COMBINATION (
     //  STATUS[6]
     always @ (RECEIVER_REG_FULL)
     begin
-        STATUS [6] = RECEIVER_REG_FULL ;
+	    STATUS [6] = ~RECEIVER_REG_EMPTY  ;
     end
 
 

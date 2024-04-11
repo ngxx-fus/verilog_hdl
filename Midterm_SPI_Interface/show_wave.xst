@@ -1,5 +1,0 @@
-set -tmpdir "/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/MID_PROPR/xst/projnav.tmp"
-set -xsthdpdir "/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/MID_PROPR/xst"
-elaborate
--ifn show_wave.prj
--ifmt mixed

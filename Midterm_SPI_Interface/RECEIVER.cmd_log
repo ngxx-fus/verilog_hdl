@@ -1,1 +1,0 @@
-xst -intstyle ise -ifn "/mnt/sda1/DOC/23-24_HK02/ICSD/VERILOG_HDL/Midterm_SPI_Interface/RECEIVER.xst" -ofn "/mnt/sda1/DOC/23-24_HK02/ICSD/VERILOG_HDL/Midterm_SPI_Interface/RECEIVER.syr" 

@@ -22,7 +22,7 @@ module SENDER (
 
     SHIFT_REGISTER_8BIT sender_shift_register(
         .CLK(SHIFT_CLK),
-        .CLR(CLR),///S_CLK
+        .CLR(CLR),
         .P_DATA_IN(DATA),
         .S_DATA_IN(LOW),
         .SH_LD(~WRITE),
@@ -56,7 +56,7 @@ module RECEIVER (
     input RE,
     input MISO,
     input CLK,
-    output [7:0] DATA,
+    output [7:0]DATA,
     output FULL_STATE, 
     output EMPTY_STATE 
 );
@@ -79,25 +79,17 @@ module RECEIVER (
     );
 
     always @(SHIFT_CLK, CLR, READ)
-    begin
         if(CLR == HIGH || READ == HIGH)
-        begin
             COUNT_RECEIVED = 4'b0000;
-        end
-        else // both READ and CLR are LOW
-        if( RE == HIGH )
-            if(FULL_STATE == LOW)
+        else
+            if( RE & (~FULL_STATE) & (~READ) == HIGH ) 
                 COUNT_RECEIVED = COUNT_RECEIVED + 4'b0001;
-            else
-                COUNT_RECEIVED = COUNT_RECEIVED;
-        else 
-            COUNT_RECEIVED = COUNT_RECEIVED;
-    end
 
     always @(CLK)
-        SHIFT_CLK = #5 CLK & RE;
+        SHIFT_CLK = #5 CLK & RE & (~FULL_STATE) & (~READ);
     assign LOW = 1'b0;
     assign HIGH = 1'b1;  
+    assign EMPTY_STATE        = (COUNT_RECEIVED == 4'B0000)?(HIGH):(LOW);
     assign FULL_STATE         = (COUNT_RECEIVED == 4'B1000)?(HIGH):(LOW);
     assign DATA               = (READ==1)?(P_DATA_OUT):(8'bzzzz_zzzz);
 endmodule

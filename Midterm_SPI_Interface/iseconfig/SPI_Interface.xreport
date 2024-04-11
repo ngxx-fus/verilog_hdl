@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2024-04-11T14:22:40</DateModified>
+  <DateModified>2024-04-12T02:56:53</DateModified>
   <ModuleName>SPI_Interface</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/mnt/sda1/DOC/23-24_HK02/ICSD/VERILOG_HDL/Midterm_SPI_Interface/iseconfig/SPI_Interface.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/mnt/sda1/DOC/23-24_HK02/ICSD/VERILOG_HDL/Midterm_SPI_Interface/</ImplementationReportsDirectory>
-  <DateInitialized>2024-04-11T14:20:56</DateInitialized>
+  <SavedFilePath>/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/SPI_INTERFACE/iseconfig/SPI_Interface.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/mnt/sda1/DOC/23-24_HK02/ICSD/MIDTERM_PRJECT/SPI_INTERFACE/</ImplementationReportsDirectory>
+  <DateInitialized>2024-04-12T01:20:31</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
