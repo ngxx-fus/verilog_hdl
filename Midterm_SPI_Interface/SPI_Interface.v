@@ -9,7 +9,6 @@ module SPI_Interface(
 	output MOSI,
 	output SS, //slave select 
 	output [7:0] P_DATA_OUT,
-	inout [31:0] GPIO
 );
 	wire LOW, HIGH;
 
