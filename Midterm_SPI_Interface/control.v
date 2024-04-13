@@ -1,17 +1,20 @@
+`timescale 100ps/100ps
+
 module CONTROL_COMBINATION(
     //from wishbone:
-    input CLK,
-    input CLR,
-	input [7:0] CONTROL,
-    input WRITE,
-    input READ,
-	input [7:0] STATUS,
+    input CLK,     
+    input CLR,     
+	 input [7:0] CONTROL, 
+    input WRITE, 
+    input READ, 
+	 input [7:0] STATUS,
+    input MS_MODE,
 
     //form BUFFER
-    inout  SENDER_BUFFER_FULL_STATE,
+    output reg SENDER_BUFFER_FULL_STATE,
     output SENDER_BUFFER_SH_LD,
-    inout  reg RECEIVER_BUFFER_FULL_STATE,
-    output reg RECEIVER_BUFFER_SH_LD,
+    output reg RECEIVER_BUFFER_FULL_STATE,
+    output RECEIVER_BUFFER_SH_LD,
 
     //sender:
     input  SENDER_EMPTY_STATE,
@@ -24,83 +27,90 @@ module CONTROL_COMBINATION(
     input  RECEIVER_FULL_STATE,
     output RECEIVER_CLK,
     output RECEIVER_CLR,
-    output RE,
+    output reg RE,
     output reg RECEIVER_READ
+    //others:
 );
-    wire HIGH, LOw;
+    wire HIGH, LOW;
+	wire LOCAL_CLK;
+	reg SENDER_CLR_FROM_BUFFER;
 
     initial begin
         TE = LOW;
+        RE = LOW;
     end
-
     //sender - sender buffer
-    always @(posedge SENDER_CLK) 
+	 
+    always @(WRITE, SENDER_EMPTY_STATE) 
     begin
-        if( WRITE == HIGH || SENDER_EMPTY_STATE == HIGH)
+        if(WRITE == HIGH)
         begin
-            SENDER_WRITE = HIGH;
-            SENDER_BUFFER_FULL_STATE = LOW;
+            SENDER_BUFFER_FULL_STATE = HIGH;
         end
         else
         begin
-            SENDER_WRITE = LOW;
-            SENDER_BUFFER_FULL_STATE = SENDER_BUFFER_FULL_STATE;
-        end
-    end
-
-    always @(CLK, WRITE, STATUS[3],STATUS[7]) begin
-        if( CONTROL[1] == 1 || CONTROL[5] == 1)
-            TE = LOW;
-        else
-            if(CLK) 
-                TE = ~WRITE;
-            else 
-                TE = TE;
-    end
-
-    //receiver
-    always @(posedge RECEIVER_CLK) 
-    begin
-        if( READ == HIGH || RECEIVER_FULL_STATE == HIGH)
-        begin
-            if(READ == HIGH)
+            if(SENDER_EMPTY_STATE == HIGH)
             begin
-                RECEIVER_READ = HIGH;
-                RECEIVER_BUFFER_SH_LD = LOW;
-                RECEIVER_BUFFER_FULL_STATE = LOW;
+                #5 SENDER_BUFFER_FULL_STATE = LOW;
+                #5 SENDER_WRITE = HIGH;
             end
             else
             begin
-                RECEIVER_READ = HIGH;
-                RECEIVER_BUFFER_FULL_STATE = HIGH;
-                RECEIVER_BUFFER_SH_LD = HIGH;
+                SENDER_BUFFER_FULL_STATE = SENDER_BUFFER_FULL_STATE;
+                #5 SENDER_WRITE = LOW;
             end
         end
-        else
-        begin
-            RECEIVER_READ = LOW;
-            RECEIVER_BUFFER_FULL_STATE = RECEIVER_BUFFER_FULL_STATE;
-        end
     end
-
-    always @(CLK, WRITE, STATUS[3],STATUS[7]) begin
+    //SENDER: INTERRUPT transfering :v 
+    always @(WRITE, STATUS[3],STATUS[7]) 
+    begin
         if( CONTROL[1] == 1 || CONTROL[5] == 1)
             TE = LOW;
         else
-            if(CLK) 
-                TE = ~WRITE;
+            TE = HIGH;
+
+    end
+
+    //receiver
+    always @(READ, RECEIVER_FULL_STATE) 
+    begin
+        if(READ == HIGH)
+        begin
+            if(READ) 
+                RECEIVER_BUFFER_FULL_STATE = LOW;
             else 
-                TE = TE;
+                RECEIVER_BUFFER_FULL_STATE = RECEIVER_BUFFER_FULL_STATE;
+        end
+        else
+        begin
+            if(RECEIVER_FULL_STATE == HIGH)
+            begin
+                #5 RECEIVER_BUFFER_FULL_STATE = HIGH;
+                #5 RECEIVER_READ = HIGH;
+            end
+            else
+            begin
+                RECEIVER_BUFFER_FULL_STATE = RECEIVER_BUFFER_FULL_STATE;
+                #5 RECEIVER_READ = LOW;
+            end
+        end
+    end
+
+    always @(READ, STATUS[2],STATUS[7]) 
+    begin
+        if( CONTROL[0] == HIGH || CONTROL[5] == HIGH)
+            RE = LOW;
+        else
+            RE = HIGH;
     end
 
     //other (included both sender and receiver :v)
-
-    assign SENDER_CLK = CLK;
-    assign SENDER_CLR = CLR;
-
-    assign RECEIVER_CLK = CLK;
+    assign S_CLK = (MS_MODE == HIGH)?(CLK):(1'bz);
+    assign LOCAL_CLK = (MS_MODE == HIGH)?(S_CLK):CLK;
+    assign SENDER_CLK = LOCAL_CLK;
+    assign SENDER_CLR = CLR | SENDER_CLR_FROM_BUFFER;
+    assign RECEIVER_CLK = LOCAL_CLK;
     assign RECEIVER_CLR = CLR;
-
     assign SENDER_BUFFER_SH_LD = WRITE;
 
 	assign LOW = 1'b0;
