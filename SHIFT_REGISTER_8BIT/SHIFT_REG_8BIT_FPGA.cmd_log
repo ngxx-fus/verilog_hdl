@@ -1,0 +1,20 @@
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SHIFT_REG_8BIT.ucf -p xc3s500e-fg320-4 SHIFT_REG_8BIT_FPGA.ngc SHIFT_REG_8BIT_FPGA.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ngd SHIFT_REG_8BIT_FPGA.pcf 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SHIFT_REG_8BIT.ucf -p xc3s500e-fg320-4 SHIFT_REG_8BIT_FPGA.ngc SHIFT_REG_8BIT_FPGA.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ngd SHIFT_REG_8BIT_FPGA.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SHIFT_REG_8BIT.ucf -p xc3s500e-fg320-4 SHIFT_REG_8BIT_FPGA.ngc SHIFT_REG_8BIT_FPGA.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ngd SHIFT_REG_8BIT_FPGA.pcf 
+par -w -intstyle ise -ol high -t 1 SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ncd SHIFT_REG_8BIT_FPGA.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml SHIFT_REG_8BIT_FPGA.twx SHIFT_REG_8BIT_FPGA.ncd -o SHIFT_REG_8BIT_FPGA.twr SHIFT_REG_8BIT_FPGA.pcf -ucf SHIFT_REG_8BIT.ucf 
+bitgen -intstyle ise -f SHIFT_REG_8BIT_FPGA.ut SHIFT_REG_8BIT_FPGA.ncd 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/SHIFT_REGISTER_8BIT/SHIFT_REG_8BIT_FPGA.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SHIFT_REG_8BIT.ucf -p xc3s500e-fg320-4 SHIFT_REG_8BIT_FPGA.ngc SHIFT_REG_8BIT_FPGA.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ngd SHIFT_REG_8BIT_FPGA.pcf 
+par -w -intstyle ise -ol high -t 1 SHIFT_REG_8BIT_FPGA_map.ncd SHIFT_REG_8BIT_FPGA.ncd SHIFT_REG_8BIT_FPGA.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml SHIFT_REG_8BIT_FPGA.twx SHIFT_REG_8BIT_FPGA.ncd -o SHIFT_REG_8BIT_FPGA.twr SHIFT_REG_8BIT_FPGA.pcf -ucf SHIFT_REG_8BIT.ucf 
+bitgen -intstyle ise -f SHIFT_REG_8BIT_FPGA.ut SHIFT_REG_8BIT_FPGA.ncd 

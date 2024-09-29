@@ -1,0 +1,6 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPDN_COUNTER/UPDN_COUNTER_isim_beh.exe -prj D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPDN_COUNTER/UPDN_COUNTER_beh.prj work.UPDN_COUNTER 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+ERROR:Simulator:702 - Can not find design unit work.UPDN_COUNTER in library work located at isim/work 

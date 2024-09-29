@@ -1,0 +1,10 @@
+NET "CLK" LOC = C9  | PULLDOWN;
+NET "RST" LOC = K17  | PULLDOWN;
+NET "Q[0]" LOC = F12 ;
+NET "Q[1]" LOC = E12 ;
+NET "Q[2]" LOC = E11 ;
+NET "Q[3]" LOC = F11 ;
+NET "Q[4]" LOC = C11 ;
+NET "Q[5]" LOC = D11 ;
+NET "Q[6]" LOC = E9  ;
+NET "Q[7]" LOC = F9  ;

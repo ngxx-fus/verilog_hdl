@@ -1,0 +1,472 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: SHIFT_REG_8BIT_FPGA.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "SHIFT_REG_8BIT_FPGA.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "SHIFT_REG_8BIT_FPGA"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : SHIFT_REG_8BIT_FPGA
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "SHIFT_REG_8BIT_FPGA.v" in library work
+Compiling verilog include file "SHIFT_REG_8BIT.v"
+Compiling verilog include file "PULSE_DIV.v"
+Module <SHIFT_REG_8BIT> compiled
+Module <PULSE_DIV> compiled
+Module <SHIFT_REG_8BIT_FPGA> compiled
+No errors in compilation
+Analysis of file <"SHIFT_REG_8BIT_FPGA.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <SHIFT_REG_8BIT_FPGA> in library <work>.
+
+Analyzing hierarchy for module <PULSE_DIV> in library <work>.
+
+Analyzing hierarchy for module <SHIFT_REG_8BIT> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <SHIFT_REG_8BIT_FPGA>.
+Module <SHIFT_REG_8BIT_FPGA> is correct for synthesis.
+ 
+Analyzing module <PULSE_DIV> in library <work>.
+Module <PULSE_DIV> is correct for synthesis.
+ 
+Analyzing module <SHIFT_REG_8BIT> in library <work>.
+Module <SHIFT_REG_8BIT> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <PULSE_DIV>.
+    Related source file is "PULSE_DIV.v".
+    Found 1-bit register for signal <O_CLK>.
+    Found 32-bit register for signal <COUNT>.
+    Found 32-bit adder for signal <COUNT$add0000> created at line 30.
+    Found 32-bit comparator greater for signal <old_COUNT_2$cmp_gt0000> created at line 23.
+    Summary:
+	inferred  33 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <PULSE_DIV> synthesized.
+
+
+Synthesizing Unit <SHIFT_REG_8BIT>.
+    Related source file is "SHIFT_REG_8BIT.v".
+    Found 8-bit register for signal <Q>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <SHIFT_REG_8BIT> synthesized.
+
+
+Synthesizing Unit <SHIFT_REG_8BIT_FPGA>.
+    Related source file is "SHIFT_REG_8BIT_FPGA.v".
+Unit <SHIFT_REG_8BIT_FPGA> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Registers                                            : 3
+ 1-bit register                                        : 1
+ 32-bit register                                       : 1
+ 8-bit register                                        : 1
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 32-bit adder                                          : 1
+# Registers                                            : 41
+ Flip-Flops                                            : 41
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <SHIFT_REG_8BIT_FPGA> ...
+
+Optimizing unit <PULSE_DIV> ...
+
+Optimizing unit <SHIFT_REG_8BIT> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block SHIFT_REG_8BIT_FPGA, actual ratio is 1.
+FlipFlop srg8bit/Q_0 has been replicated 1 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 42
+ Flip-Flops                                            : 42
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : SHIFT_REG_8BIT_FPGA.ngr
+Top Level Output File Name         : SHIFT_REG_8BIT_FPGA
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 11
+
+Cell Usage :
+# BELS                             : 150
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 4
+#      LUT2                        : 40
+#      LUT4                        : 14
+#      MUXCY                       : 53
+#      VCC                         : 1
+#      XORCY                       : 32
+# FlipFlops/Latches                : 42
+#      FDE                         : 1
+#      FDR                         : 41
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 2
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       33  out of   4656     0%  
+ Number of Slice Flip Flops:             41  out of   9312     0%  
+ Number of 4 input LUTs:                 63  out of   9312     0%  
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    232     4%  
+    IOB Flip Flops:                       1
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 33    |
+pldv/O_CLK                         | NONE(srg8bit/Q_7)      | 9     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.026ns (Maximum Frequency: 110.794MHz)
+   Minimum input arrival time before clock: 2.949ns
+   Maximum output required time after clock: 4.310ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 9.026ns (frequency: 110.794MHz)
+  Total number of paths / destination ports: 26929 / 66
+-------------------------------------------------------------------------
+Delay:               9.026ns (Levels of Logic = 48)
+  Source:            pldv/COUNT_0 (FF)
+  Destination:       pldv/COUNT_31 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: pldv/COUNT_0 to pldv/COUNT_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.591   0.706  pldv/COUNT_0 (pldv/COUNT_0)
+     LUT4:I0->O            1   0.704   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_lut<0> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<0> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<1> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<2> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<3> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<4> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<5> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<6> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<7> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<8> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<9> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<10> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<11> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<12> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<12>)
+     MUXCY:CI->O          40   0.459   1.344  pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<13> (pldv/Mcompar_old_COUNT_2_cmp_gt0000_cy<13>)
+     LUT2:I1->O            1   0.704   0.000  pldv/Madd_COUNT_add0000_lut<0> (pldv/Madd_COUNT_add0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  pldv/Madd_COUNT_add0000_cy<0> (pldv/Madd_COUNT_add0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<1> (pldv/Madd_COUNT_add0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<2> (pldv/Madd_COUNT_add0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<3> (pldv/Madd_COUNT_add0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<4> (pldv/Madd_COUNT_add0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<5> (pldv/Madd_COUNT_add0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<6> (pldv/Madd_COUNT_add0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<7> (pldv/Madd_COUNT_add0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<8> (pldv/Madd_COUNT_add0000_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<9> (pldv/Madd_COUNT_add0000_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<10> (pldv/Madd_COUNT_add0000_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<11> (pldv/Madd_COUNT_add0000_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<12> (pldv/Madd_COUNT_add0000_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<13> (pldv/Madd_COUNT_add0000_cy<13>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<14> (pldv/Madd_COUNT_add0000_cy<14>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<15> (pldv/Madd_COUNT_add0000_cy<15>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<16> (pldv/Madd_COUNT_add0000_cy<16>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<17> (pldv/Madd_COUNT_add0000_cy<17>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<18> (pldv/Madd_COUNT_add0000_cy<18>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<19> (pldv/Madd_COUNT_add0000_cy<19>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<20> (pldv/Madd_COUNT_add0000_cy<20>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<21> (pldv/Madd_COUNT_add0000_cy<21>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<22> (pldv/Madd_COUNT_add0000_cy<22>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<23> (pldv/Madd_COUNT_add0000_cy<23>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<24> (pldv/Madd_COUNT_add0000_cy<24>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<25> (pldv/Madd_COUNT_add0000_cy<25>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<26> (pldv/Madd_COUNT_add0000_cy<26>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<27> (pldv/Madd_COUNT_add0000_cy<27>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<28> (pldv/Madd_COUNT_add0000_cy<28>)
+     MUXCY:CI->O           1   0.059   0.000  pldv/Madd_COUNT_add0000_cy<29> (pldv/Madd_COUNT_add0000_cy<29>)
+     MUXCY:CI->O           0   0.059   0.000  pldv/Madd_COUNT_add0000_cy<30> (pldv/Madd_COUNT_add0000_cy<30>)
+     XORCY:CI->O           1   0.804   0.000  pldv/Madd_COUNT_add0000_xor<31> (pldv/COUNT_add0000<31>)
+     FDR:D                     0.308          pldv/COUNT_31
+    ----------------------------------------
+    Total                      9.026ns (6.976ns logic, 2.050ns route)
+                                       (77.3% logic, 22.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'pldv/O_CLK'
+  Clock period: 1.346ns (frequency: 742.942MHz)
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Delay:               1.346ns (Levels of Logic = 0)
+  Source:            srg8bit/Q_6 (FF)
+  Destination:       srg8bit/Q_7 (FF)
+  Source Clock:      pldv/O_CLK rising
+  Destination Clock: pldv/O_CLK rising
+
+  Data Path: srg8bit/Q_6 to srg8bit/Q_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.447  srg8bit/Q_6 (srg8bit/Q_6)
+     FDR:D                     0.308          srg8bit/Q_7
+    ----------------------------------------
+    Total                      1.346ns (0.899ns logic, 0.447ns route)
+                                       (66.8% logic, 33.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'pldv/O_CLK'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              2.949ns (Levels of Logic = 1)
+  Source:            RST (PAD)
+  Destination:       srg8bit/Q_7 (FF)
+  Destination Clock: pldv/O_CLK rising
+
+  Data Path: RST to srg8bit/Q_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             9   1.218   0.820  RST_IBUF (RST_IBUF)
+     FDR:R                     0.911          srg8bit/Q_0
+    ----------------------------------------
+    Total                      2.949ns (2.129ns logic, 0.820ns route)
+                                       (72.2% logic, 27.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'pldv/O_CLK'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              4.310ns (Levels of Logic = 1)
+  Source:            srg8bit/Q_6 (FF)
+  Destination:       Q<6> (PAD)
+  Source Clock:      pldv/O_CLK rising
+
+  Data Path: srg8bit/Q_6 to Q<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.447  srg8bit/Q_6 (srg8bit/Q_6)
+     OBUF:I->O                 3.272          Q_6_OBUF (Q<6>)
+    ----------------------------------------
+    Total                      4.310ns (3.863ns logic, 0.447ns route)
+                                       (89.6% logic, 10.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.96 secs
+ 
+--> 
+
+Total memory usage is 4497420 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

@@ -1,0 +1,10 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPCOUNTER_4BIT_MOD10/TB_isim_beh.exe -prj D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPCOUNTER_4BIT_MOD10/TB_beh.prj work.TB work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPCOUNTER_4BIT_MOD10/TB.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+ERROR:HDLCompiler:1654 - "D:/DOC/NH_2024_2025_HK_01/ICSL316764/UPCOUNTER_4BIT_MOD10/TB.v" Line 35: Instantiating <uut> from unknown module <PULSE_DIV>
+ERROR:Simulator:778 - Static elaboration of top level Verilog design unit(s) in library work failed

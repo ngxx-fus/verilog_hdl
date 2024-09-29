@@ -1,0 +1,14 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "OUT[0]" LOC = E12;
+NET "OUT[1]" LOC = E11;
+NET "OUT[2]" LOC = F11;
+NET "OUT[3]" LOC = C11;
+NET "CLK" LOC = C9;
+NET "RST" LOC = L13;
+
+# PlanAhead Generated IO constraints 
+
+NET "RST" PULLDOWN;
+NET "CLK" PULLDOWN;
