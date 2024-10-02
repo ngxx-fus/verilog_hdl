@@ -1,0 +1,34 @@
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_map.ncd FINAL.ncd FINAL.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL.twx FINAL.ncd -o FINAL.twr FINAL.pcf -ucf PINS.ucf 
+bitgen -intstyle ise -f FINAL.ut FINAL.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_map.ncd FINAL.ncd FINAL.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL.twx FINAL.ncd -o FINAL.twr FINAL.pcf -ucf PINS.ucf 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_map.ncd FINAL.ncd FINAL.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL.twx FINAL.ncd -o FINAL.twr FINAL.pcf -ucf PINS.ucf 
+bitgen -intstyle ise -f FINAL.ut FINAL.ncd 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/FINAL_EXAM_PREVIEW_MON/FINAL.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_map.ncd FINAL.ncd FINAL.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL.twx FINAL.ncd -o FINAL.twr FINAL.pcf -ucf PINS.ucf 
+bitgen -intstyle ise -f FINAL.ut FINAL.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PINS.ucf -p xc3s500e-fg320-4 FINAL.ngc FINAL.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_map.ncd FINAL.ngd FINAL.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_map.ncd FINAL.ncd FINAL.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL.twx FINAL.ncd -o FINAL.twr FINAL.pcf -ucf PINS.ucf 
+bitgen -intstyle ise -f FINAL.ut FINAL.ncd 

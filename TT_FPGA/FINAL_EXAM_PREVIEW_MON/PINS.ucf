@@ -1,0 +1,7 @@
+NET "I" LOC = V16    | PULLDOWN;
+NET "CLK" LOC = C9   | PULLDOWN;
+NET "RST" LOC = N17  | PULLDOWN;
+NET "Q[0]" LOC = F12;
+NET "Q[1]" LOC = E12;
+NET "Q[2]" LOC = E11;
+NET "LED" LOC = F9  ;
