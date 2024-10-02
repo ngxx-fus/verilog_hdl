@@ -1,0 +1,29 @@
+Command line:
+   test_module_updn_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  64346
+
+Wed Oct 02 15:42:01 2024
+
+
+ Elaboration Time: 0.03125 sec
+
+ Current Memory Usage: 5150.08 Meg
+
+ Total Signals          : 18
+ Total Nets             : 22
+ Total Signal Drivers   : 10
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 14
+ Total Traceable Variables  : 24
+ Total Scalar Nets and Variables : 144
+Total Line Count : 56
+
+ Total Simulation Time: 0.34375 sec
+
+ Current Memory Usage: 4992.79 Meg
+
+Wed Oct 02 15:43:11 2024
+

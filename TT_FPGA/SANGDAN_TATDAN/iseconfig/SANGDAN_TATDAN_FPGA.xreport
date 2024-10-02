@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2024-09-25T13:50:42</DateModified>
+  <DateModified>2024-10-02T15:35:16</DateModified>
   <ModuleName>SANGDAN_TATDAN_FPGA</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>D:/DOC/NH_2024_2025_HK_01/ICSL316764/SANGDAN_TATDAN/iseconfig/SANGDAN_TATDAN_FPGA.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/DOC/NH_2024_2025_HK_01/ICSL316764/SANGDAN_TATDAN</ImplementationReportsDirectory>
+  <SavedFilePath>D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/SANGDAN_TATDAN/iseconfig/SANGDAN_TATDAN_FPGA.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/SANGDAN_TATDAN\</ImplementationReportsDirectory>
   <DateInitialized>2024-09-25T13:50:41</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

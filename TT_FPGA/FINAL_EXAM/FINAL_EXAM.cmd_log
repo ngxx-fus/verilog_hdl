@@ -1,0 +1,22 @@
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FINAL_EXAM.ucf -p xc3s500e-fg320-4 FINAL_EXAM.ngc FINAL_EXAM.ngd  
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FINAL_EXAM.ucf -p xc3s500e-fg320-4 FINAL_EXAM.ngc FINAL_EXAM.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_EXAM_map.ncd FINAL_EXAM.ngd FINAL_EXAM.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_EXAM_map.ncd FINAL_EXAM.ncd FINAL_EXAM.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL_EXAM.twx FINAL_EXAM.ncd -o FINAL_EXAM.twr FINAL_EXAM.pcf -ucf FINAL_EXAM.ucf 
+bitgen -intstyle ise -f FINAL_EXAM.ut FINAL_EXAM.ncd 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 FINAL_EXAM.ngc FINAL_EXAM.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_EXAM_map.ncd FINAL_EXAM.ngd FINAL_EXAM.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_EXAM_map.ncd FINAL_EXAM.ncd FINAL_EXAM.pcf 
+xst -intstyle ise -ifn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.xst" -ofn "D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/FINAL_EXAM/FINAL_EXAM.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FINAL_EXAM.ucf -p xc3s500e-fg320-4 FINAL_EXAM.ngc FINAL_EXAM.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o FINAL_EXAM_map.ncd FINAL_EXAM.ngd FINAL_EXAM.pcf 
+par -w -intstyle ise -ol high -t 1 FINAL_EXAM_map.ncd FINAL_EXAM.ncd FINAL_EXAM.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml FINAL_EXAM.twx FINAL_EXAM.ncd -o FINAL_EXAM.twr FINAL_EXAM.pcf -ucf FINAL_EXAM.ucf 
+bitgen -intstyle ise -f FINAL_EXAM.ut FINAL_EXAM.ncd 

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2024-10-02T13:41:10</DateModified>
+  <DateModified>2024-10-02T14:29:57</DateModified>
   <ModuleName>MOD60</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/eBOARD/iseconfig/MOD60.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/eBOARD</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>D:/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/eBOARD\</ImplementationReportsDirectory>
   <DateInitialized>2024-10-02T13:41:10</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
