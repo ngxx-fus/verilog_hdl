@@ -1,0 +1,19 @@
+ISim log file
+Running: /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/testbench_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING:  For instance uut/freq_div/, width 1 of formal port M is not equal to width 32 of actual constant.
+WARNING: File "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/INFOR.v" Line 24.  For instance uut/tm1638/, width 8 of formal port led is not equal to width 1 of actual signal led.
+WARNING: File "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/INFOR.v" Line 29.  For instance uut/tm1638/, width 4 of formal port seg4 is not equal to width 1 of actual signal LED7SEG_4.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run 3s
+Stopped at time : 2111718 us : File "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/testbench.v" Line 37
+# exit 0

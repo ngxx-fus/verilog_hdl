@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="testbench.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1728351873" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1728351873">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1728352674" xil_pn:in_ck="182517533596416004" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1728352674">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="testbench.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1728351873" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2386922764329843479" xil_pn:start_ts="1728351873">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1728351873" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="6444180408115110535" xil_pn:start_ts="1728351873">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1728351873" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="2977003855407702288" xil_pn:start_ts="1728351873">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1728352674" xil_pn:in_ck="182517533596416004" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1728352674">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="testbench.v"/>
+    </transform>
+    <transform xil_pn:end_ts="1728352678" xil_pn:in_ck="182517533596416004" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5749008932769887120" xil_pn:start_ts="1728352674">
+      <status xil_pn:value="FailedRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
+
+</generated_project>
