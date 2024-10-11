@@ -1,5 +1,0 @@
-set -tmpdir "D:/DOC/NH_2024_2025_HK_01/ICSL316764/eBOARD/xst/projnav.tmp"
-set -xsthdpdir "D:/DOC/NH_2024_2025_HK_01/ICSL316764/eBOARD/xst"
-elaborate
--ifn TM1638.prj
--ifmt mixed
