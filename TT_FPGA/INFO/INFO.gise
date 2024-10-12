@@ -52,13 +52,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1728290875" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1728290875">
+    <transform xil_pn:end_ts="1728663881" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1728663881">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="FREQ_DIV.v"/>
       <outfile xil_pn:name="INFOR.v"/>
       <outfile xil_pn:name="TM1638.v"/>
@@ -76,24 +72,18 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1728290875" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1728290875">
+    <transform xil_pn:end_ts="1728663881" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1728663881">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="FREQ_DIV.v"/>
       <outfile xil_pn:name="INFOR.v"/>
       <outfile xil_pn:name="TM1638.v"/>
       <outfile xil_pn:name="testbench.v"/>
     </transform>
-    <transform xil_pn:end_ts="1728290877" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7771229135162385360" xil_pn:start_ts="1728290875">
+    <transform xil_pn:end_ts="1728663882" xil_pn:in_ck="-637386910990098255" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="7771229135162385360" xil_pn:start_ts="1728663881">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
@@ -102,10 +92,9 @@
       <outfile xil_pn:name="testbench_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1728290877" xil_pn:in_ck="-2512209785433391908" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3051560837048203341" xil_pn:start_ts="1728290877">
+    <transform xil_pn:end_ts="1728663882" xil_pn:in_ck="-2512209785433391908" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3051560837048203341" xil_pn:start_ts="1728663882">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
@@ -144,6 +133,8 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="INFOR.lso"/>
       <outfile xil_pn:name="INFOR.ngc"/>
       <outfile xil_pn:name="INFOR.ngr"/>

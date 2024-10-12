@@ -36,14 +36,14 @@ module INFOR(
         .dio(dio)
     );
 
-    assign led = 0;
-    assign LED7SEG_0 = 2;
-    assign LED7SEG_1 = 2;
-    assign LED7SEG_2 = 1;
-    assign LED7SEG_3 = 1;
-    assign LED7SEG_4 = 9;
-    assign LED7SEG_5 = 2;
-    assign LED7SEG_6 = 1;
-    assign LED7SEG_7 = 1;
+    assign led = 4'B0000;
+    assign LED7SEG_0 = 4'B0010;
+    assign LED7SEG_1 = 4'B0010;
+    assign LED7SEG_2 = 4'B0001;
+    assign LED7SEG_3 = 4'B0001;
+    assign LED7SEG_4 = 4'B1001;
+    assign LED7SEG_5 = 4'B0010;
+    assign LED7SEG_6 = 4'B0001;
+    assign LED7SEG_7 = 4'B0001;
 
 endmodule

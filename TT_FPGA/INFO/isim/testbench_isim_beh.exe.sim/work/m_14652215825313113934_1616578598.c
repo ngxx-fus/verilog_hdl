@@ -22,10 +22,11 @@
 #define alloca _alloca
 #endif
 static const char *ng0 = "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/INFOR.v";
-static int ng1[] = {0, 0};
-static int ng2[] = {2, 0};
-static int ng3[] = {1, 0};
-static int ng4[] = {9, 0};
+static unsigned int ng1[] = {0U, 0U};
+static unsigned int ng2[] = {2U, 0U};
+static unsigned int ng3[] = {1U, 0U};
+static unsigned int ng4[] = {9U, 0U};
+static int ng5[] = {0, 0};
 
 
 
@@ -496,7 +497,7 @@ LAB0:    t1 = (t0 + 6992U);
 
 LAB3:    goto *t2;
 
-LAB2:    t2 = ((char*)((ng1)));
+LAB2:    t2 = ((char*)((ng5)));
     t3 = (t0 + 7952);
     t4 = (t3 + 56U);
     t5 = *((char **)t4);

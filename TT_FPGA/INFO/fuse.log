@@ -11,8 +11,8 @@ WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/I
 WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/INFOR.v" Line 24: Size mismatch in connection of port <led>. Formal port size is 8-bit while actual signal size is 1-bit.
 WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/INFOR.v" Line 29: Size mismatch in connection of port <seg4>. Formal port size is 4-bit while actual signal size is 1-bit.
 Completed static elaboration
-Fuse Memory Usage: 84888 KB
-Fuse CPU Usage: 1160 ms
+Fuse Memory Usage: 82684 KB
+Fuse CPU Usage: 940 ms
 Compiling module FREQ_DIV
 Compiling module TM1638
 Compiling module INFOR
@@ -22,6 +22,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 5 Verilog Units
 Built simulation executable /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/testbench_isim_beh.exe
-Fuse Memory Usage: 1169692 KB
-Fuse CPU Usage: 1180 ms
-GCC CPU Usage: 850 ms
+Fuse Memory Usage: 1167488 KB
+Fuse CPU Usage: 960 ms
+GCC CPU Usage: 570 ms

@@ -1,0 +1,29 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/testfull_isim_beh.exe -prj /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/testfull_beh.prj work.testfull work.glbl 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" into library work
+Analyzing Verilog file "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/testfull.v" into library work
+Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" Line 45: Size mismatch in connection of port <M>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" Line 24: Size mismatch in connection of port <M>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" Line 28: Size mismatch in connection of port <led>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" Line 33: Size mismatch in connection of port <seg4>. Formal port size is 4-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v" Line 51: Size mismatch in connection of port <NUM>. Formal port size is 8-bit while actual signal size is 9-bit.
+Completed static elaboration
+Fuse Memory Usage: 83012 KB
+Fuse CPU Usage: 1190 ms
+Compiling module FREQ_DIV
+Compiling module TM1638
+Compiling module MOD60
+Compiling module MOD60_FPGA
+Compiling module testfull
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 6 Verilog Units
+Built simulation executable /mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/testfull_isim_beh.exe
+Fuse Memory Usage: 1167500 KB
+Fuse CPU Usage: 1220 ms
+GCC CPU Usage: 760 ms

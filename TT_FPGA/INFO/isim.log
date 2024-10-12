@@ -14,6 +14,5 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-# run 3s
-Stopped at time : 2111718 us : File "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/INFO/testbench.v" Line 37
+# run 300ms
 # exit 0

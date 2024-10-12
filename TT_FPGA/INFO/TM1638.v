@@ -1,7 +1,6 @@
-
 /* TM1638 driver  
-	Author: Mr. Son 
-	Input clock: tested for 200KHz  ( 50H - free counter -> bit 5 
+Author: Mr. Son 
+input clock: tested for 200KHz  ( 50H - free counter -> bit 5 
 */ 
  
 module TM1638( 
@@ -13,9 +12,8 @@ module TM1638(
   output reg dio 
 ); 
  
-/* 
-	Hex-Digit to seven segment LED decoder 
-	Author: Mr. Son  
+/* Hex-Digit to seven segment LED decoder 
+ Author: Mr. Son  
 */ 
 function [7:0] sseg; 
     input  [3:0] hex; 
@@ -35,7 +33,7 @@ function [7:0] sseg;
             4'hB: sseg[7:0] = 8'b1111100; 
             4'hC: sseg[7:0] = 8'b1011000; 
             4'hD: sseg[7:0] = 8'b1011110; 
-            4'hE: sseg[7:0] = 8'h40; // dau tru
+            4'hE: sseg[7:0] = 8'h40; 
             default : sseg[7:0] = 8'b0000000; // 4'hF 
         endcase 
     end 
@@ -51,7 +49,7 @@ reg [127:0] leddatahold;
   assign leddata[2*8+7:2*8+0] = sseg(seg1); 
   assign leddata[4*8+7:4*8+0] = sseg(seg2); 
   assign leddata[6*8+7:6*8+0] = sseg(seg3); 
-  assign leddata[8*8+7:8*8+0] = sseg(seg4); 
+  assign leddata[8*8+7:8*8+0] = sseg(9); 
   assign leddata[10*8+7:10*8+0] = sseg(seg5); 
   assign leddata[12*8+7:12*8+0] = sseg(seg6); 
   assign leddata[14*8+7:14*8+0] = sseg(seg7); 
@@ -80,9 +78,7 @@ begin
   if (cs==0) 
   begin 
     stb = 0; // initial tm1638 
-    command1 =8'h40; 
-	 command2 =8'hC0;
-	 command3 =8'h8F; 
+    command1 =8'h40; command2 =8'hC0;command3 =8'h8F; 
     leddatahold=leddata ; 
   end 
     
@@ -103,6 +99,7 @@ begin
     clk = ~clk ; 
     if (clk) command2=command2>>1 ; 
   end 
+  
   else if ((cs >=35)&&(cs<=290)) 
   begin  
     dio = leddatahold[0]; 
@@ -128,5 +125,5 @@ begin
     cs = -1 ;  //repeat 
     // update cs 
     cs=cs+1;  
-end
+end    
 endmodule 
