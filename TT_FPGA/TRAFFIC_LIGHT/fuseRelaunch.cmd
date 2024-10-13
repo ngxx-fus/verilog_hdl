@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/TRAFFIC_LIGHT/TEST_TF_CTL_isim_beh.exe" -prj "/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/TRAFFIC_LIGHT/TEST_TF_CTL_beh.prj" "work.TEST_TF_CTL" "work.glbl" 
