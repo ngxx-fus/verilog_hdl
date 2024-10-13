@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/BAINHOM_01/TEST_CLOCK_FPGA_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="TEST_CLOCK_FPGA" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/TEST_CLOCK_FPGA/CARRY" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CARRY</obj_property>
+      <obj_property name="ObjectShortName">CARRY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/HOUR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">HOUR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">HOUR[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/MINUTE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MINUTE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">MINUTE[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/SECOND" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SECOND[7:0]</obj_property>
+      <obj_property name="ObjectShortName">SECOND[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/CLOCK_CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLOCK_CLK</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/CLOCK_INCR" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLOCK_INCR</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_INCR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TEST_CLOCK_FPGA/CLOCK_SET" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLOCK_SET</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_SET</obj_property>
+   </wvobject>
+</wave_config>

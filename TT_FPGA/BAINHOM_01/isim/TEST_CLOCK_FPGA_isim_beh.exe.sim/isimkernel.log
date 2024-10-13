@@ -1,0 +1,29 @@
+Command line:
+   TEST_CLOCK_FPGA_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  55911
+
+Sun Oct 13 19:36:46 2024
+
+
+ Elaboration Time: 0.03 sec
+
+ Current Memory Usage: 193.401 Meg
+
+ Total Signals          : 51
+ Total Nets             : 50
+ Total Signal Drivers   : 18
+ Total Blocks           : 8
+ Total Primitive Blocks : 5
+ Total Processes        : 30
+ Total Traceable Variables  : 28
+ Total Scalar Nets and Variables : 163
+Total Line Count : 91
+
+ Total Simulation Time: 0.06 sec
+
+ Current Memory Usage: 268.902 Meg
+
+Sun Oct 13 19:42:55 2024
+

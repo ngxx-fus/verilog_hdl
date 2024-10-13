@@ -8,5 +8,20 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/FREQ_DIV.v&apos; in file &quot;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v&quot; line 1
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/TM1638.v&apos; in file &quot;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v</arg>&quot; Line <arg fmt="%d" index="2">3</arg>. <arg fmt="%s" index="3">Include file found: &apos;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60.v&apos; in file &quot;/mnt/sda2/DOC/NH_2024_2025_HK_01/ICSL316764/TT_FPGA/MOD60/MOD60_FPGA.v&quot; line 3
+</arg>
+</msg>
+
 </messages>
 

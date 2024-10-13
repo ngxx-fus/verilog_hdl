@@ -1,0 +1,9 @@
+MO MINUTE_CONTROL NULL MINUTE_CONTROL.v vlg6A/_m_i_n_u_t_e___c_o_n_t_r_o_l.bin 1728823387
+MO SECOND_CONTROL NULL SECOND_CONTROL.v vlg10/_s_e_c_o_n_d___c_o_n_t_r_o_l.bin 1728823387
+MO HOUR_CONTROL NULL HOUR_CONTROL.v vlg4E/_h_o_u_r___c_o_n_t_r_o_l.bin 1728823387
+MO FREQ_DIV NULL FREQ_DIV.v vlg04/_f_r_e_q___d_i_v.bin 1728823387
+MO TM1638 NULL TM1638.v vlg4B/_t_m1638.bin 1728823387
+MO CLOCK_FPGA NULL CLOCK_FPGA.v vlg11/_c_l_o_c_k___f_p_g_a.bin 1728823387
+MO CLOCK_CONTROL NULL CLOCK.v vlg34/_c_l_o_c_k___c_o_n_t_r_o_l.bin 1728823387
+MO CHOOSE NULL CHOOSE.v vlg55/_c_h_o_o_s_e.bin 1728823387
+MO CLOCK_FINAL NULL CLOCK_FINAL.v vlg65/_c_l_o_c_k___f_i_n_a_l.bin 1728823387
